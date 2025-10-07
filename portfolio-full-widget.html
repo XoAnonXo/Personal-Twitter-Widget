@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Portfolio Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            color: #333;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #e9ecef;
+        }
+
+        .nav-btn.active {
+            background: #10B981;
+            color: white;
+        }
+
+        .widget-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-widget {
+            width: 920px;
+            height: 730px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 13px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .widget-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .sync-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .sync-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .sync-btn.syncing {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .widget-content {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+        }
+
+        .left-column {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .wallet-section {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .wallet-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .analyze-btn {
+            width: 100%;
+            padding: 12px;
+            background: #10B981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .analyze-btn:hover {
+            background: #059669;
+        }
+
+        .analyze-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .protocols-section {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            flex: 1;
+        }
+
+        .protocols-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .protocol-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            font-size: 12px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .protocol-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .protocol-logo {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .protocol-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .protocol-tvl {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .protocol-change {
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .protocol-change.positive {
+            color: #10B981;
+        }
+
+        .protocol-change.negative {
+            color: #ef4444;
+        }
+
+        .metrics-section {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .metric-item {
+            background: white;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0369a1;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .news-section {
+            background: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 8px;
+            padding: 16px;
+            flex: 1;
+        }
+
+        .news-item {
+            background: white;
+            border: 1px solid #fde047;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-weight: 500;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .news-protocol {
+            background: #10B981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        .news-summary {
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .news-time {
+            font-size: 10px;
+            color: #9ca3af;
+        }
+
+        .analytics-section {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 16px;
+            height: 200px;
+        }
+
+        .chart-container {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 12px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .risk-section {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .risk-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #fecaca;
+        }
+
+        .risk-item:last-child {
+            border-bottom: none;
+        }
+
+        .risk-label {
+            font-size: 12px;
+            color: #333;
+        }
+
+        .risk-value {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .risk-value.low {
+            color: #10B981;
+        }
+
+        .risk-value.medium {
+            color: #f59e0b;
+        }
+
+        .risk-value.high {
+            color: #ef4444;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 13px;
+            padding: 40px 0;
+        }
+
+        .loading-state {
+            text-align: center;
+            color: #10B981;
+            font-size: 13px;
+            padding: 40px 0;
+        }
+
+        .error-state {
+            text-align: center;
+            color: #ef4444;
+            font-size: 13px;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="portfolio-small-widget.html" class="nav-btn">Small</a>
+        <a href="portfolio-medium-widget.html" class="nav-btn">Medium</a>
+        <a href="portfolio-large-widget.html" class="nav-btn">Large</a>
+        <a href="portfolio-full-widget.html" class="nav-btn active">Full</a>
+    </div>
+
+    <div class="widget-container">
+        <div class="portfolio-widget" id="full-portfolio-widget">
+            <div class="widget-header">
+                <div class="widget-title">💼 Portfolio Analysis Platform</div>
+                <button class="sync-btn" onclick="syncPortfolio('full')" title="Sync Portfolio">🔄</button>
+            </div>
+
+            <div class="widget-content">
+                <div class="left-column">
+                    <div class="wallet-section">
+                        <div class="section-title">Wallet Analysis</div>
+                        <input type="text" class="wallet-input" id="full-wallet-input" placeholder="Enter wallet address..." value="0x742d35Cc6634C0532925a3b8D9C8C8C8C8C8C8C8">
+                        <button class="analyze-btn" onclick="analyzeWallet('full')">Analyze Portfolio</button>
+                    </div>
+
+                    <div class="protocols-section">
+                        <div class="section-title">Detected Protocols</div>
+                        <div class="protocols-grid" id="full-protocols-grid">
+                            <div class="protocol-item">
+                                <div class="protocol-logo">🏦</div>
+                                <div class="protocol-name">Aave</div>
+                                <div class="protocol-tvl">$8.2K</div>
+                                <div class="protocol-change positive">+2.3%</div>
+                            </div>
+                            <div class="protocol-item">
+                                <div class="protocol-logo">🔄</div>
+                                <div class="protocol-name">Uniswap</div>
+                                <div class="protocol-tvl">$3.1K</div>
+                                <div class="protocol-change positive">+1.8%</div>
+                            </div>
+                            <div class="protocol-item">
+                                <div class="protocol-logo">🎯</div>
+                                <div class="protocol-name">Pendle</div>
+                                <div class="protocol-tvl">$0.8K</div>
+                                <div class="protocol-change negative">-0.5%</div>
+                            </div>
+                            <div class="protocol-item">
+                                <div class="protocol-logo">🚀</div>
+                                <div class="protocol-name">Pump.fun</div>
+                                <div class="protocol-tvl">$0.3K</div>
+                                <div class="protocol-change positive">+5.2%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-section">
+                        <div class="section-title">Portfolio Metrics</div>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">$12.4K</div>
+                                <div class="metric-label">Total Value</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">+8.2%</div>
+                                <div class="metric-label">24h Change</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">4</div>
+                                <div class="metric-label">Protocols</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">12</div>
+                                <div class="metric-label">Positions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="news-section">
+                        <div class="section-title">Protocol News & Analysis</div>
+                        <div id="full-news">
+                            <div class="news-item">
+                                <div class="news-header">
+                                    <div class="news-title">Aave V3 Security Enhancement</div>
+                                    <div class="news-protocol">Aave</div>
+                                </div>
+                                <div class="news-summary">Major security updates and new features announced for Aave V3 protocol, including enhanced risk management tools...</div>
+                                <div class="news-time">2 hours ago</div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-header">
+                                    <div class="news-title">Uniswap V4 Architecture Launch</div>
+                                    <div class="news-protocol">Uniswap</div>
+                                </div>
+                                <div class="news-summary">Revolutionary new architecture with improved efficiency and reduced gas costs for traders...</div>
+                                <div class="news-time">5 hours ago</div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-header">
+                                    <div class="news-title">Pendle Yield Trading Expansion</div>
+                                    <div class="news-protocol">Pendle</div>
+                                </div>
+                                <div class="news-summary">Enhanced yield trading capabilities with new markets and improved user interface...</div>
+                                <div class="news-time">1 day ago</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-section">
+                        <div class="section-title">Portfolio Performance</div>
+                        <div class="chart-container">
+                            📊 Portfolio Value Over Time Chart
+                            <br>
+                            <small>Interactive chart showing 7-day performance</small>
+                        </div>
+                    </div>
+
+                    <div class="risk-section">
+                        <div class="section-title">Risk Assessment</div>
+                        <div class="risk-item">
+                            <div class="risk-label">Overall Risk</div>
+                            <div class="risk-value medium">Medium</div>
+                        </div>
+                        <div class="risk-item">
+                            <div class="risk-label">Concentration Risk</div>
+                            <div class="risk-value low">Low</div>
+                        </div>
+                        <div class="risk-item">
+                            <div class="risk-label">Liquidity Risk</div>
+                            <div class="risk-value low">Low</div>
+                        </div>
+                        <div class="risk-item">
+                            <div class="risk-label">Smart Contract Risk</div>
+                            <div class="risk-value medium">Medium</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for protocols
+        const mockProtocols = {
+            '0x742d35Cc6634C0532925a3b8D9C8C8C8C8C8C8C8': [
+                { name: 'Aave', logo: '🏦', tvl: '$8.2K', change: '+2.3%', changeType: 'positive' },
+                { name: 'Uniswap', logo: '🔄', tvl: '$3.1K', change: '+1.8%', changeType: 'positive' },
+                { name: 'Pendle', logo: '🎯', tvl: '$0.8K', change: '-0.5%', changeType: 'negative' },
+                { name: 'Pump.fun', logo: '🚀', tvl: '$0.3K', change: '+5.2%', changeType: 'positive' }
+            ]
+        };
+
+        // Mock news data
+        const mockNews = [
+            {
+                title: 'Aave V3 Security Enhancement',
+                summary: 'Major security updates and new features announced for Aave V3 protocol, including enhanced risk management tools...',
+                protocol: 'Aave',
+                time: '2 hours ago'
+            },
+            {
+                title: 'Uniswap V4 Architecture Launch',
+                summary: 'Revolutionary new architecture with improved efficiency and reduced gas costs for traders...',
+                protocol: 'Uniswap',
+                time: '5 hours ago'
+            },
+            {
+                title: 'Pendle Yield Trading Expansion',
+                summary: 'Enhanced yield trading capabilities with new markets and improved user interface...',
+                protocol: 'Pendle',
+                time: '1 day ago'
+            },
+            {
+                title: 'Pump.fun Integration Update',
+                summary: 'New partnerships and expanded token support for meme coin trading...',
+                protocol: 'Pump.fun',
+                time: '2 days ago'
+            }
+        ];
+
+        function analyzeWallet(size) {
+            const input = document.getElementById(`${size}-wallet-input`);
+            const walletAddress = input.value.trim();
+            
+            if (!walletAddress) {
+                alert('Please enter a wallet address');
+                return;
+            }
+
+            const button = event.target;
+            button.disabled = true;
+            button.textContent = 'Analyzing...';
+
+            // Simulate analysis
+            setTimeout(() => {
+                updateProtocols(size, walletAddress);
+                updateMetrics(size);
+                updateNews(size);
+                
+                button.disabled = false;
+                button.textContent = 'Analyze Portfolio';
+            }, 2000);
+        }
+
+        function updateProtocols(size, walletAddress) {
+            const protocolsGrid = document.getElementById(`${size}-protocols-grid`);
+            const protocols = mockProtocols[walletAddress] || [];
+            
+            protocolsGrid.innerHTML = protocols.map(protocol => `
+                <div class="protocol-item">
+                    <div class="protocol-logo">${protocol.logo}</div>
+                    <div class="protocol-name">${protocol.name}</div>
+                    <div class="protocol-tvl">${protocol.tvl}</div>
+                    <div class="protocol-change ${protocol.changeType}">${protocol.change}</div>
+                </div>
+            `).join('');
+        }
+
+        function updateMetrics(size) {
+            // Metrics are static for now, but could be dynamic based on wallet analysis
+            console.log(`Updated metrics for ${size} widget`);
+        }
+
+        function updateNews(size) {
+            const newsContainer = document.getElementById(`${size}-news`);
+            const relevantNews = mockNews.slice(0, 3); // Show 3 news items for full widget
+            
+            newsContainer.innerHTML = relevantNews.map(news => `
+                <div class="news-item">
+                    <div class="news-header">
+                        <div class="news-title">${news.title}</div>
+                        <div class="news-protocol">${news.protocol}</div>
+                    </div>
+                    <div class="news-summary">${news.summary}</div>
+                    <div class="news-time">${news.time}</div>
+                </div>
+            `).join('');
+        }
+
+        function syncPortfolio(size) {
+            const syncBtn = document.querySelector(`#${size}-portfolio-widget .sync-btn`);
+            syncBtn.classList.add('syncing');
+            
+            setTimeout(() => {
+                syncBtn.classList.remove('syncing');
+                // Refresh all data
+                const walletInput = document.getElementById(`${size}-wallet-input`);
+                if (walletInput.value) {
+                    updateProtocols(size, walletInput.value);
+                    updateMetrics(size);
+                    updateNews(size);
+                }
+            }, 1500);
+        }
+
+        // Initialize with default data
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProtocols('full', '0x742d35Cc6634C0532925a3b8D9C8C8C8C8C8C8C8');
+            updateNews('full');
+        });
+    </script>
+</body>
+</html>

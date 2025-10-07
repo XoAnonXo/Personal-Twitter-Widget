@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Portfolio Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            color: #333;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #e9ecef;
+        }
+
+        .nav-btn.active {
+            background: #10B981;
+            color: white;
+        }
+
+        .widget-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-widget {
+            width: 215px;
+            height: 300px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+            overflow: hidden;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .sync-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .sync-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .sync-btn.syncing {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .wallet-input-section {
+            margin-bottom: 12px;
+        }
+
+        .wallet-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .analyze-btn {
+            width: 100%;
+            padding: 6px;
+            background: #10B981;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .analyze-btn:hover {
+            background: #059669;
+        }
+
+        .analyze-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .protocols-section {
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .protocols-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+        }
+
+        .protocol-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 6px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .protocol-logo {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .protocol-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .metrics-section {
+            margin-bottom: 12px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+
+        .metric-item {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 4px;
+            padding: 6px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0369a1;
+        }
+
+        .metric-label {
+            font-size: 9px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .news-section {
+            flex: 1;
+        }
+
+        .news-item {
+            background: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 4px;
+            padding: 6px;
+            margin-bottom: 4px;
+            font-size: 10px;
+        }
+
+        .news-title {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .news-summary {
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 11px;
+            padding: 20px 0;
+        }
+
+        .loading-state {
+            text-align: center;
+            color: #10B981;
+            font-size: 11px;
+            padding: 20px 0;
+        }
+
+        .error-state {
+            text-align: center;
+            color: #ef4444;
+            font-size: 11px;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="portfolio-small-widget.html" class="nav-btn active">Small</a>
+        <a href="portfolio-medium-widget.html" class="nav-btn">Medium</a>
+        <a href="portfolio-large-widget.html" class="nav-btn">Large</a>
+        <a href="portfolio-full-widget.html" class="nav-btn">Full</a>
+    </div>
+
+    <div class="widget-container">
+        <div class="portfolio-widget" id="small-portfolio-widget">
+            <div class="widget-header">
+                <div class="widget-title">💼 Portfolio Analysis</div>
+                <button class="sync-btn" onclick="syncPortfolio('small')" title="Sync Portfolio">🔄</button>
+            </div>
+
+            <div class="wallet-input-section">
+                <input type="text" class="wallet-input" id="small-wallet-input" placeholder="Enter wallet address..." value="0x742d35Cc6634C0532925a3b8D9C8C8C8C8C8C8C8">
+                <button class="analyze-btn" onclick="analyzeWallet('small')">Analyze Portfolio</button>
+            </div>
+
+            <div class="protocols-section" id="small-protocols">
+                <div class="section-title">Detected Protocols</div>
+                <div class="protocols-grid" id="small-protocols-grid">
+                    <div class="protocol-item">
+                        <div class="protocol-logo">🏦</div>
+                        <div class="protocol-name">Aave</div>
+                    </div>
+                    <div class="protocol-item">
+                        <div class="protocol-logo">🔄</div>
+                        <div class="protocol-name">Uniswap</div>
+                    </div>
+                    <div class="protocol-item">
+                        <div class="protocol-logo">🎯</div>
+                        <div class="protocol-name">Pendle</div>
+                    </div>
+                    <div class="protocol-item">
+                        <div class="protocol-logo">🚀</div>
+                        <div class="protocol-name">Pump.fun</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-section">
+                <div class="section-title">Key Metrics</div>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">$12.4K</div>
+                        <div class="metric-label">Total Value</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">+8.2%</div>
+                        <div class="metric-label">24h Change</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <div class="section-title">Latest News</div>
+                <div id="small-news">
+                    <div class="news-item">
+                        <div class="news-title">Aave V3 Update</div>
+                        <div class="news-summary">New features and improved security...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for protocols
+        const mockProtocols = {
+            '0x742d35Cc6634C0532925a3b8D9C8C8C8C8C8C8C8': [
+                { name: 'Aave', logo: '🏦', tvl: '$8.2K' },
+                { name: 'Uniswap', logo: '🔄', tvl: '$3.1K' },
+                { name: 'Pendle', logo: '🎯', tvl: '$0.8K' },
+                { name: 'Pump.fun', logo: '🚀', tvl: '$0.3K' }
+            ]
+        };
+
+        // Mock news data
+        const mockNews = [
+            {
+                title: 'Aave V3 Update',
+                summary: 'New features and improved security measures...',
+                protocol: 'Aave'
+            },
+            {
+                title: 'Uniswap V4 Launch',
+                summary: 'Revolutionary new architecture...',
+                protocol: 'Uniswap'
+            },
+            {
+                title: 'Pendle Yield Trading',
+                summary: 'Enhanced yield trading capabilities...',
+                protocol: 'Pendle'
+            }
+        ];
+
+        function analyzeWallet(size) {
+            const input = document.getElementById(`${size}-wallet-input`);
+            const walletAddress = input.value.trim();
+            
+            if (!walletAddress) {
+                alert('Please enter a wallet address');
+                return;
+            }
+
+            const button = event.target;
+            button.disabled = true;
+            button.textContent = 'Analyzing...';
+
+            // Simulate analysis
+            setTimeout(() => {
+                updateProtocols(size, walletAddress);
+                updateMetrics(size);
+                updateNews(size);
+                
+                button.disabled = false;
+                button.textContent = 'Analyze Portfolio';
+            }, 2000);
+        }
+
+        function updateProtocols(size, walletAddress) {
+            const protocolsGrid = document.getElementById(`${size}-protocols-grid`);
+            const protocols = mockProtocols[walletAddress] || [];
+            
+            protocolsGrid.innerHTML = protocols.map(protocol => `
+                <div class="protocol-item">
+                    <div class="protocol-logo">${protocol.logo}</div>
+                    <div class="protocol-name">${protocol.name}</div>
+                </div>
+            `).join('');
+        }
+
+        function updateMetrics(size) {
+            // Metrics are static for now, but could be dynamic based on wallet analysis
+            console.log(`Updated metrics for ${size} widget`);
+        }
+
+        function updateNews(size) {
+            const newsContainer = document.getElementById(`${size}-news`);
+            const relevantNews = mockNews.slice(0, 1); // Show only 1 news item for small widget
+            
+            newsContainer.innerHTML = relevantNews.map(news => `
+                <div class="news-item">
+                    <div class="news-title">${news.title}</div>
+                    <div class="news-summary">${news.summary}</div>
+                </div>
+            `).join('');
+        }
+
+        function syncPortfolio(size) {
+            const syncBtn = document.querySelector(`#${size}-portfolio-widget .sync-btn`);
+            syncBtn.classList.add('syncing');
+            
+            setTimeout(() => {
+                syncBtn.classList.remove('syncing');
+                // Refresh all data
+                const walletInput = document.getElementById(`${size}-wallet-input`);
+                if (walletInput.value) {
+                    updateProtocols(size, walletInput.value);
+                    updateMetrics(size);
+                    updateNews(size);
+                }
+            }, 1500);
+        }
+
+        // Initialize with default data
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProtocols('small', '0x742d35Cc6634C0532925a3b8D9C8C8C8C8C8C8C8');
+            updateNews('small');
+        });
+    </script>
+</body>
+</html>

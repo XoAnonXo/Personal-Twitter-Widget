@@ -22,6 +22,28 @@
             margin: 0 auto;
         }
 
+        .nav-set-btn {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-set-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+        }
+
+        .nav-set-btn.active {
+            background: #8B5CF6;
+            color: white;
+            border-color: #7C3AED;
+        }
+
         .widget-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1269,6 +1291,15 @@
 </head>
 <body>
     <div class="container">
+        <!-- Navigation Menu -->
+        <div class="widget-set-nav" style="text-align: center; margin-bottom: 30px;">
+            <h2 style="color: #666; font-size: 16px; margin-bottom: 15px;">Choose Widget Set:</h2>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html" class="nav-set-btn active">📰 News Widgets</a>
+                <a href="portfolio-index.html" class="nav-set-btn">💼 Portfolio Widgets</a>
+            </div>
+        </div>
+        
         <h1 style="text-align: center; margin-bottom: 40px; color: #333; font-size: 32px;">
             📰 News Widget - Interactive Wireframes
         </h1>
