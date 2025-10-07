@@ -62,6 +62,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .widget-header {
@@ -125,6 +126,17 @@
             border-radius: 6px;
             font-size: 12px;
             margin-bottom: 8px;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .wallet-input:focus {
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .wallet-input:invalid {
+            border-color: #ef4444;
         }
 
         .analyze-btn {
@@ -137,16 +149,32 @@
             font-size: 12px;
             font-weight: 500;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .analyze-btn:hover {
             background: #059669;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .analyze-btn:active {
+            transform: translateY(0);
         }
 
         .analyze-btn:disabled {
             background: #9ca3af;
             cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .analyze-btn:disabled:hover {
+            background: #9ca3af;
+            transform: none;
+            box-shadow: none;
         }
 
         .protocols-section {
@@ -173,12 +201,18 @@
             padding: 10px;
             text-align: center;
             font-size: 11px;
-            transition: transform 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
 
         .protocol-item:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-color: #10B981;
+        }
+
+        .protocol-item:active {
+            transform: translateY(0);
         }
 
         .protocol-logo {
@@ -229,6 +263,27 @@
 
         .news-section {
             flex: 1;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        .news-section::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .news-section::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 2px;
+        }
+
+        .news-section::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+
+        .news-section::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
 
         .news-item {
@@ -297,6 +352,57 @@
             color: #ef4444;
             font-size: 12px;
             padding: 20px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .widget-container {
+                padding: 10px;
+            }
+            
+            .portfolio-widget {
+                width: 100%;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-widget {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                min-height: 300px;
+            }
+            
+            .widget-content {
+                flex-direction: column;
+            }
+            
+            .left-column, .right-column {
+                width: 100%;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #10B981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Smooth transitions for all interactive elements */
+        * {
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
         }
     </style>
 </head>
@@ -434,22 +540,37 @@
             const walletAddress = input.value.trim();
             
             if (!walletAddress) {
-                alert('Please enter a wallet address');
+                input.classList.add('invalid');
+                setTimeout(() => input.classList.remove('invalid'), 2000);
                 return;
             }
 
             const button = event.target;
             button.disabled = true;
-            button.textContent = 'Analyzing...';
+            button.innerHTML = '<span class="loading-spinner"></span> Analyzing...';
 
-            // Simulate analysis
+            // Simulate analysis with progress
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 10;
+                if (progress <= 100) {
+                    button.innerHTML = `<span class="loading-spinner"></span> Analyzing... ${progress}%`;
+                }
+            }, 200);
+
             setTimeout(() => {
+                clearInterval(progressInterval);
                 updateProtocols(size, walletAddress);
                 updateMetrics(size);
                 updateNews(size);
                 
                 button.disabled = false;
-                button.textContent = 'Analyze Portfolio';
+                button.innerHTML = '✅ Analysis Complete';
+                
+                // Reset button text after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = 'Analyze Portfolio';
+                }, 2000);
             }, 2000);
         }
 
