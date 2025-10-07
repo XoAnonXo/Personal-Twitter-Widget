@@ -59,10 +59,31 @@
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             font-size: 13px;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        .portfolio-widget::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .portfolio-widget::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .portfolio-widget::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .portfolio-widget::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
 
         .widget-header {
@@ -488,6 +509,30 @@
                                 </div>
                                 <div class="news-summary">Revolutionary new architecture with enhanced efficiency...</div>
                                 <div class="news-time">5 hours ago</div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-header">
+                                    <div class="news-title">Pendle Yield Trading</div>
+                                    <div class="news-protocol">Pendle</div>
+                                </div>
+                                <div class="news-summary">Enhanced yield trading capabilities and new markets...</div>
+                                <div class="news-time">1 day ago</div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-header">
+                                    <div class="news-title">Pump.fun Integration</div>
+                                    <div class="news-protocol">Pump.fun</div>
+                                </div>
+                                <div class="news-summary">New partnerships and expanded token support...</div>
+                                <div class="news-time">2 days ago</div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-header">
+                                    <div class="news-title">Market Analysis</div>
+                                    <div class="news-protocol">General</div>
+                                </div>
+                                <div class="news-summary">Comprehensive analysis of current market trends...</div>
+                                <div class="news-time">3 days ago</div>
                             </div>
                         </div>
                     </div>

@@ -59,10 +59,31 @@
             padding: 16px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             font-size: 12px;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        .portfolio-widget::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .portfolio-widget::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .portfolio-widget::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .portfolio-widget::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
 
         .widget-header {
@@ -420,7 +441,23 @@
                 <div id="small-news">
                     <div class="news-item">
                         <div class="news-title">Aave V3 Update</div>
-                        <div class="news-summary">New features and improved security...</div>
+                        <div class="news-summary">New features and improved security measures announced for Aave V3 protocol...</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">Uniswap V4 Launch</div>
+                        <div class="news-summary">Revolutionary new architecture with enhanced efficiency and reduced gas costs...</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">Pendle Yield Trading</div>
+                        <div class="news-summary">Enhanced yield trading capabilities and new markets available...</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">Pump.fun Integration</div>
+                        <div class="news-summary">New partnerships and expanded token support for meme coin trading...</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">Market Analysis</div>
+                        <div class="news-summary">Comprehensive analysis of current market trends and opportunities...</div>
                     </div>
                 </div>
             </div>
