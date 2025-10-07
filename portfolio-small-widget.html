@@ -195,41 +195,64 @@
             margin-bottom: 8px;
         }
 
-        .protocols-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .protocols-group {
+            display: flex;
             gap: 4px;
+            justify-content: center;
+            margin-bottom: 12px;
         }
 
-        .protocol-item {
+        .protocol-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            padding: 6px;
-            text-align: center;
-            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
-        .protocol-item:hover {
+        .protocol-logo:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-color: #10B981;
         }
 
-        .protocol-item:active {
+        .protocol-logo:active {
             transform: translateY(0);
         }
 
-        .protocol-logo {
-            font-size: 16px;
-            margin-bottom: 2px;
+        .sentiment-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
-        .protocol-name {
+        .sentiment-icon {
+            font-size: 20px;
+        }
+
+        .sentiment-text {
+            font-size: 11px;
             font-weight: 500;
-            color: #333;
+        }
+
+        .sentiment-bullish {
+            color: #10B981;
+        }
+
+        .sentiment-neutral {
+            color: #f59e0b;
+        }
+
+        .sentiment-bearish {
+            color: #ef4444;
         }
 
         .metrics-section {
@@ -402,23 +425,20 @@
 
             <div class="protocols-section" id="small-protocols">
                 <div class="section-title">Detected Protocols</div>
-                <div class="protocols-grid" id="small-protocols-grid">
-                    <div class="protocol-item">
-                        <div class="protocol-logo">🏦</div>
-                        <div class="protocol-name">Aave</div>
-                    </div>
-                    <div class="protocol-item">
-                        <div class="protocol-logo">🔄</div>
-                        <div class="protocol-name">Uniswap</div>
-                    </div>
-                    <div class="protocol-item">
-                        <div class="protocol-logo">🎯</div>
-                        <div class="protocol-name">Pendle</div>
-                    </div>
-                    <div class="protocol-item">
-                        <div class="protocol-logo">🚀</div>
-                        <div class="protocol-name">Pump.fun</div>
-                    </div>
+                <div class="protocols-group" id="small-protocols-group">
+                    <div class="protocol-logo">🏦</div>
+                    <div class="protocol-logo">🔄</div>
+                    <div class="protocol-logo">🎯</div>
+                    <div class="protocol-logo">🚀</div>
+                </div>
+                
+                <div class="sentiment-indicator">
+                    <div class="sentiment-icon sentiment-bullish">📈</div>
+                    <div class="sentiment-text sentiment-bullish">Bullish</div>
+                </div>
+                
+                <div style="font-size: 10px; color: #666; text-align: center; line-height: 1.3; margin-bottom: 8px;">
+                    Portfolio showing strong performance with diversified DeFi exposure. Recent market trends favor yield-generating protocols.
                 </div>
             </div>
 
@@ -534,14 +554,11 @@
         }
 
         function updateProtocols(size, walletAddress) {
-            const protocolsGrid = document.getElementById(`${size}-protocols-grid`);
+            const protocolsGroup = document.getElementById(`${size}-protocols-group`);
             const protocols = mockProtocols[walletAddress] || [];
             
-            protocolsGrid.innerHTML = protocols.map(protocol => `
-                <div class="protocol-item">
-                    <div class="protocol-logo">${protocol.logo}</div>
-                    <div class="protocol-name">${protocol.name}</div>
-                </div>
+            protocolsGroup.innerHTML = protocols.map(protocol => `
+                <div class="protocol-logo">${protocol.logo}</div>
             `).join('');
         }
 

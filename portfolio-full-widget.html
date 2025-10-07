@@ -222,42 +222,64 @@
             flex: 1;
         }
 
-        .protocols-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+        .protocols-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .protocol-item {
-            background: white;
+        .protocol-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            padding: 12px;
-            text-align: center;
-            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
-        .protocol-item:hover {
-            transform: translateY(-2px);
+        .protocol-logo:hover {
+            transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-color: #10B981;
         }
 
-        .protocol-item:active {
+        .protocol-logo:active {
             transform: translateY(0);
         }
 
-        .protocol-logo {
-            font-size: 24px;
-            margin-bottom: 6px;
+        .sentiment-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        .protocol-name {
+        .sentiment-icon {
+            font-size: 32px;
+        }
+
+        .sentiment-text {
+            font-size: 16px;
             font-weight: 500;
-            color: #333;
-            margin-bottom: 4px;
+        }
+
+        .sentiment-bullish {
+            color: #10B981;
+        }
+
+        .sentiment-neutral {
+            color: #f59e0b;
+        }
+
+        .sentiment-bearish {
+            color: #ef4444;
         }
 
         .protocol-tvl {
@@ -549,31 +571,20 @@
 
                     <div class="protocols-section">
                         <div class="section-title">Detected Protocols</div>
-                        <div class="protocols-grid" id="full-protocols-grid">
-                            <div class="protocol-item">
-                                <div class="protocol-logo">🏦</div>
-                                <div class="protocol-name">Aave</div>
-                                <div class="protocol-tvl">$8.2K</div>
-                                <div class="protocol-change positive">+2.3%</div>
-                            </div>
-                            <div class="protocol-item">
-                                <div class="protocol-logo">🔄</div>
-                                <div class="protocol-name">Uniswap</div>
-                                <div class="protocol-tvl">$3.1K</div>
-                                <div class="protocol-change positive">+1.8%</div>
-                            </div>
-                            <div class="protocol-item">
-                                <div class="protocol-logo">🎯</div>
-                                <div class="protocol-name">Pendle</div>
-                                <div class="protocol-tvl">$0.8K</div>
-                                <div class="protocol-change negative">-0.5%</div>
-                            </div>
-                            <div class="protocol-item">
-                                <div class="protocol-logo">🚀</div>
-                                <div class="protocol-name">Pump.fun</div>
-                                <div class="protocol-tvl">$0.3K</div>
-                                <div class="protocol-change positive">+5.2%</div>
-                            </div>
+                        <div class="protocols-group" id="full-protocols-group">
+                            <div class="protocol-logo">🏦</div>
+                            <div class="protocol-logo">🔄</div>
+                            <div class="protocol-logo">🎯</div>
+                            <div class="protocol-logo">🚀</div>
+                        </div>
+                        
+                        <div class="sentiment-indicator">
+                            <div class="sentiment-icon sentiment-bullish">📈</div>
+                            <div class="sentiment-text sentiment-bullish">Bullish</div>
+                        </div>
+                        
+                        <div style="font-size: 13px; color: #666; text-align: center; line-height: 1.5; margin-bottom: 16px;">
+                            Portfolio showing strong performance with diversified DeFi exposure. Recent market trends favor yield-generating protocols and liquidity provision strategies. Overall sentiment remains positive with balanced risk exposure.
                         </div>
                     </div>
 
@@ -767,16 +778,11 @@
         }
 
         function updateProtocols(size, walletAddress) {
-            const protocolsGrid = document.getElementById(`${size}-protocols-grid`);
+            const protocolsGroup = document.getElementById(`${size}-protocols-group`);
             const protocols = mockProtocols[walletAddress] || [];
             
-            protocolsGrid.innerHTML = protocols.map(protocol => `
-                <div class="protocol-item">
-                    <div class="protocol-logo">${protocol.logo}</div>
-                    <div class="protocol-name">${protocol.name}</div>
-                    <div class="protocol-tvl">${protocol.tvl}</div>
-                    <div class="protocol-change ${protocol.changeType}">${protocol.change}</div>
-                </div>
+            protocolsGroup.innerHTML = protocols.map(protocol => `
+                <div class="protocol-logo">${protocol.logo}</div>
             `).join('');
         }
 
