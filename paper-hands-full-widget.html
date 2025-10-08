@@ -236,6 +236,13 @@
             font-style: italic;
         }
 
+        .lambo-count {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -383,6 +390,11 @@
             text-align: right;
         }
 
+        .lambo-icon {
+            font-size: 14px;
+            margin-right: 4px;
+        }
+
         .coaching-section {
             background: #f0fdf4;
             border-radius: 8px;
@@ -493,11 +505,9 @@
             <div class="widget-header">
                 <div class="widget-title">📉 Paper Hands Regret Calculator</div>
                 <div class="header-controls">
-                    <input type="text" class="api-key-input" id="apiKeyInput" placeholder="Enter API key (read-only)" maxlength="100">
-                    <button class="connect-btn" onclick="connectAPI()">Connect</button>
                     <div class="api-status">
-                        <div class="status-dot syncing"></div>
-                        <span>Syncing</span>
+                        <div class="status-dot"></div>
+                        <span>Wallet Connected</span>
                     </div>
                 </div>
             </div>
@@ -517,6 +527,7 @@
 
                         <div class="current-regret">
                             <div class="regret-amount" id="regretAmount">-$2,847</div>
+                            <div class="lambo-count" id="lamboCount">🚗 0.01 Lambos</div>
                             <div class="regret-message" id="regretMessage">Your panic sells cost you big time</div>
                         </div>
 
@@ -582,7 +593,7 @@
                                 <div class="trade-details">Sold at $3,000 → Now $4,200</div>
                                 <div class="trade-timing">2 days ago</div>
                             </div>
-                            <div class="trade-loss">-$1,200</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.48</div>
                         </div>
                         <div class="trade-item">
                             <div class="trade-info">
@@ -590,7 +601,7 @@
                                 <div class="trade-details">Sold at $45K → Now $52K</div>
                                 <div class="trade-timing">5 days ago</div>
                             </div>
-                            <div class="trade-loss">-$850</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.34</div>
                         </div>
                         <div class="trade-item">
                             <div class="trade-info">
@@ -598,7 +609,7 @@
                                 <div class="trade-details">Sold at $180 → Now $220</div>
                                 <div class="trade-timing">1 week ago</div>
                             </div>
-                            <div class="trade-loss">-$420</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.17</div>
                         </div>
                         <div class="trade-item">
                             <div class="trade-info">
@@ -606,7 +617,7 @@
                                 <div class="trade-details">Sold at $0.85 → Now $1.20</div>
                                 <div class="trade-timing">2 weeks ago</div>
                             </div>
-                            <div class="trade-loss">-$200</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.08</div>
                         </div>
                         <div class="trade-item">
                             <div class="trade-info">
@@ -614,7 +625,7 @@
                                 <div class="trade-details">Sold at $25 → Now $32</div>
                                 <div class="trade-timing">3 weeks ago</div>
                             </div>
-                            <div class="trade-loss">-$177</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.07</div>
                         </div>
                     </div>
 
@@ -638,42 +649,10 @@
             { level: 'rag', position: 90, message: 'Rag hands! Panic selling detected' }
         ];
 
-        function connectAPI() {
-            const apiKey = document.getElementById('apiKeyInput').value.trim();
-            const connectBtn = document.querySelector('.connect-btn');
-            const statusDot = document.querySelector('.status-dot');
-            const statusText = document.querySelector('.api-status span');
-            
-            if (!apiKey) {
-                alert('Please enter an API key');
-                return;
-            }
-
-            // Show connecting state
-            connectBtn.disabled = true;
-            connectBtn.textContent = 'Connecting...';
-            statusDot.className = 'status-dot syncing';
-            statusText.textContent = 'Connecting';
-
-            // Simulate API connection
-            setTimeout(() => {
-                connectBtn.disabled = false;
-                connectBtn.textContent = 'Connected';
-                statusDot.className = 'status-dot';
-                statusText.textContent = 'Connected';
-                
-                // Start syncing data
-                setTimeout(() => {
-                    statusDot.className = 'status-dot syncing';
-                    statusText.textContent = 'Syncing';
-                    updateRegretMeter();
-                }, 1000);
-            }, 2000);
-        }
-
         function updateRegretMeter() {
             const needle = document.getElementById('regretNeedle');
             const regretAmount = document.getElementById('regretAmount');
+            const lamboCount = document.getElementById('lamboCount');
             const regretMessage = document.getElementById('regretMessage');
             const totalTrades = document.getElementById('totalTrades');
             const panicSells = document.getElementById('panicSells');
@@ -687,8 +666,12 @@
             regretMessage.textContent = randomLevel.message;
             
             // Simulate random regret amount
-            const randomAmount = Math.floor(Math.random() * 10000) + 1000;
+            const randomAmount = Math.floor(Math.random() * 100000) + 10000;
             regretAmount.textContent = '-$' + randomAmount.toLocaleString();
+            
+            // Calculate lambos (assuming $250k per lambo)
+            const lambos = (randomAmount / 250000).toFixed(2);
+            lamboCount.textContent = '🚗 ' + lambos + ' Lambos';
             
             // Simulate random stats
             const randomTotal = Math.floor(Math.random() * 100) + 20;

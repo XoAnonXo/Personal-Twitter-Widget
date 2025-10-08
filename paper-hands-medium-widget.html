@@ -182,6 +182,13 @@
             font-style: italic;
         }
 
+        .lambo-count {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f59e0b;
+            margin-bottom: 4px;
+        }
+
         .pattern-analysis {
             background: #f8fafc;
             border-radius: 6px;
@@ -253,6 +260,11 @@
             color: #059669;
             font-weight: 600;
             text-align: right;
+        }
+
+        .lambo-icon {
+            font-size: 12px;
+            margin-right: 2px;
         }
 
         .behavioral-insights {
@@ -340,6 +352,7 @@
 
                     <div class="current-regret">
                         <div class="regret-amount" id="regretAmount">-$2,847</div>
+                        <div class="lambo-count" id="lamboCount">🚗 0.01 Lambos</div>
                         <div class="regret-message" id="regretMessage">Your panic sells cost you big time</div>
                     </div>
 
@@ -377,21 +390,21 @@
                                 <div class="trade-asset">ETH</div>
                                 <div class="trade-details">Sold at $3,000 → Now $4,200</div>
                             </div>
-                            <div class="trade-loss">-$1,200</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.48</div>
                         </div>
                         <div class="trade-item">
                             <div class="trade-info">
                                 <div class="trade-asset">BTC</div>
                                 <div class="trade-details">Sold at $45K → Now $52K</div>
                             </div>
-                            <div class="trade-loss">-$850</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.34</div>
                         </div>
                         <div class="trade-item">
                             <div class="trade-info">
                                 <div class="trade-asset">SOL</div>
                                 <div class="trade-details">Sold at $180 → Now $220</div>
                             </div>
-                            <div class="trade-loss">-$420</div>
+                            <div class="trade-loss"><span class="lambo-icon">🚗</span>0.17</div>
                         </div>
                     </div>
                 </div>
@@ -409,6 +422,7 @@
         function updateRegretMeter() {
             const needle = document.getElementById('regretNeedle');
             const regretAmount = document.getElementById('regretAmount');
+            const lamboCount = document.getElementById('lamboCount');
             const regretMessage = document.getElementById('regretMessage');
             const totalTrades = document.getElementById('totalTrades');
             const panicSells = document.getElementById('panicSells');
@@ -420,8 +434,12 @@
             regretMessage.textContent = randomLevel.message;
             
             // Simulate random regret amount
-            const randomAmount = Math.floor(Math.random() * 5000) + 500;
+            const randomAmount = Math.floor(Math.random() * 50000) + 5000;
             regretAmount.textContent = '-$' + randomAmount.toLocaleString();
+            
+            // Calculate lambos (assuming $250k per lambo)
+            const lambos = (randomAmount / 250000).toFixed(2);
+            lamboCount.textContent = '🚗 ' + lambos + ' Lambos';
             
             // Simulate random stats
             const randomTotal = Math.floor(Math.random() * 100) + 20;
