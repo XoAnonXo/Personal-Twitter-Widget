@@ -362,62 +362,242 @@
             line-height: 1.5;
         }
 
-        .analysis-history {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 16px;
+        .report-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 20px;
         }
 
-        .analysis-history h4 {
-            font-size: 13px;
+        .report-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .report-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .report-meta {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .report-meta p {
+            margin-bottom: 4px;
+        }
+
+        .report-meta code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .report-section {
+            margin-bottom: 24px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .report-section h3 {
+            font-size: 16px;
             font-weight: 600;
             color: #333;
             margin-bottom: 12px;
         }
 
-        .history-item {
+        .report-section p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .overview-item {
+            font-size: 12px;
+            color: #333;
+            padding: 6px 0;
+        }
+
+        .security-analysis {
+            margin-top: 16px;
+        }
+
+        .security-analysis h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .security-item {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .security-item code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .liquidity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .liquidity-item {
+            font-size: 12px;
+            color: #333;
+            padding: 6px 0;
+        }
+
+        .dex-distribution h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .dex-item {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .risk-assessment {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .risk-summary {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px 0;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 10px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #f0f9ff;
+            border-radius: 6px;
         }
 
-        .history-item:last-child {
-            border-bottom: none;
-        }
-
-        .history-token {
-            color: #333;
-            font-weight: 500;
-        }
-
-        .history-risk {
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 9px;
+        .risk-score-large {
+            font-size: 14px;
             font-weight: 600;
+            color: #333;
         }
 
-        .history-risk.low {
-            background: #dcfce7;
-            color: #166534;
+        .risk-level-large {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
         }
 
-        .history-risk.medium {
+        .risk-level-large.risk-medium {
             background: #fef3c7;
             color: #92400e;
         }
 
-        .history-risk.high {
-            background: #fee2e2;
-            color: #991b1b;
+        .contributing-factors h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
         }
 
-        .history-risk.extreme {
-            background: #fecaca;
-            color: #7f1d1d;
+        .factor-item {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .risk-summary-text h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .risk-summary-text ol {
+            font-size: 12px;
+            color: #333;
+            margin-left: 16px;
+        }
+
+        .risk-summary-text li {
+            margin-bottom: 4px;
+        }
+
+        .ai-analysis {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .analysis-point {
+            margin-bottom: 16px;
+        }
+
+        .analysis-point h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .analysis-point p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .overall-assessment {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .overall-assessment h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .report-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .report-footer p {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
@@ -455,156 +635,179 @@
                 <button class="analyze-btn" onclick="analyzeToken()">Analyze Token</button>
             </div>
 
-            <div class="content-grid">
-                <div class="left-column">
-                    <div class="input-section">
-                        <div class="input-label">Token Address</div>
-                        <input type="text" class="token-input" id="tokenAddress" placeholder="0x..." maxlength="42">
-                    </div>
-
-                    <div class="meter-section">
-                        <div class="rug-meter">
-                            <div class="meter-needle" id="meterNeedle" style="left: 20%;"></div>
-                        </div>
-                        
-                        <div class="risk-level risk-medium" id="riskLevel">MEDIUM RISK</div>
-                        <div class="risk-score" id="riskScore" style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 12px;">Overall Risk Score: 31.35</div>
-                        <div class="risk-description" id="riskDescription">Some coordination indicators present, requires careful monitoring. Moderate risk detected.</div>
-                        
-                        <div class="analysis-status" id="analysisStatus" style="display: none;">
-                            <span class="loading-spinner"></span>
-                            Analyzing... This may take up to 15 minutes
-                        </div>
-                    </div>
-
-                    <div class="token-info" id="tokenInfo" style="display: none;">
-                        <h4>Token Details</h4>
-                        <div><strong>Symbol:</strong> <span id="tokenSymbol">-</span></div>
-                        <div><strong>Name:</strong> <span id="tokenName">-</span></div>
-                        <div><strong>Supply:</strong> <span id="tokenSupply">-</span></div>
-                        <div><strong>Liquidity:</strong> <span id="tokenLiquidity">-</span></div>
-                        <div><strong>Market Cap:</strong> <span id="tokenMarketCap">-</span></div>
-                        <div><strong>Holders:</strong> <span id="tokenHolders">-</span></div>
-                        <div><strong>Age:</strong> <span id="tokenAge">-</span></div>
-                        <div><strong>Volume 24h:</strong> <span id="tokenVolume">-</span></div>
-                    </div>
-
-                    <div class="risk-factors" id="riskFactors" style="display: none;">
-                        <h4>Risk Analysis</h4>
-                        <div class="risk-factor low" id="riskFactor1">✅ Verified Contract</div>
-                        <div class="risk-factor medium" id="riskFactor2">⚠️ Anonymous Devs</div>
-                        <div class="risk-factor high" id="riskFactor3">🚨 High Supply</div>
-                        <div class="risk-factor low" id="riskFactor4">✅ Good Liquidity</div>
-                        <div class="risk-factor medium" id="riskFactor5">⚠️ Low Holder Count</div>
-                        <div class="risk-factor high" id="riskFactor6">🚨 Suspicious Activity</div>
+            <div class="report-content" id="reportContent">
+                <div class="report-header">
+                    <h2>🔍 Coin Security Analysis Report</h2>
+                    <div class="report-meta">
+                        <p><strong>Chain:</strong> Solana</p>
+                        <p><strong>Token:</strong> 苹果链 (苹果链)</p>
+                        <p><strong>Address:</strong> <code>9E325nGcPH5kGWMKjsZD1Q2B4xLNhpyd5nMrbV8s2dT9</code></p>
+                        <p><strong>Generated:</strong> 2025-10-08T17:17:42.728Z</p>
                     </div>
                 </div>
 
-                <div class="right-column">
-                    <div class="metrics-grid" id="metricsGrid" style="display: none;">
-                        <div class="metric-card">
-                            <h5>Market Cap</h5>
-                            <div class="metric-value good" id="metricMarketCap">-</div>
+                <div class="report-section">
+                    <h3>📊 Token Overview</h3>
+                    <div class="token-overview">
+                        <div class="overview-grid">
+                            <div class="overview-item">
+                                <strong>Name:</strong> 苹果链
+                            </div>
+                            <div class="overview-item">
+                                <strong>Symbol:</strong> 苹果链
+                            </div>
+                            <div class="overview-item">
+                                <strong>Supply:</strong> 999988175341545
+                            </div>
+                            <div class="overview-item">
+                                <strong>Holders:</strong> 2,718
+                            </div>
+                            <div class="overview-item">
+                                <strong>Market Cap:</strong> $286,315.649
+                            </div>
+                            <div class="overview-item">
+                                <strong>Price:</strong> $0.0002863156493457358
+                            </div>
                         </div>
-                        <div class="metric-card">
-                            <h5>Holders</h5>
-                            <div class="metric-value good" id="metricHolders">-</div>
-                        </div>
-                        <div class="metric-card">
-                            <h5>Volume 24h</h5>
-                            <div class="metric-value warning" id="metricVolume">-</div>
-                        </div>
-                        <div class="metric-card">
-                            <h5>Age</h5>
-                            <div class="metric-value danger" id="metricAge">-</div>
+                        
+                        <div class="security-analysis">
+                            <h4>Security Analysis:</h4>
+                            <div class="security-item">
+                                <strong>Mint Authority:</strong> ✅ ✅ <strong>None</strong> (Immutable)
+                            </div>
+                            <div class="security-item">
+                                <strong>Freeze Authority:</strong> ✅ ✅ <strong>None</strong> (Immutable)
+                            </div>
+                            <div class="security-item">
+                                <strong>Creator:</strong> <code>7hnTzCVKCa3ToiKC8wgFHzc2s5jRBVDwwg5DpffUKjUu</code>
+                            </div>
+                            <div class="security-item">
+                                <strong>Created:</strong> 10/8/2025, 3:10:18 AM
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="recommendation" id="recommendation" style="display: none;">
-                        <h4>Recommendation</h4>
-                        <p id="recommendationText">Proceed with caution. Monitor closely and only invest what you can afford to lose.</p>
-                        <div style="margin-top: 12px;">
-                            <a href="http://3.74.168.46/public/report.html?token=OUUzMjVuR2NQSDVrR1dNS2pzWkQxUTJCNHhMTmhweWQ1bk1yYlY4czJkVDk6YWMwZGMwODRlZGY4ZmNjMjdkYjE3Mzk0MDM3ZjgxOWY3MzZhOTE5ZjJjM2ZiZTA4MjE1ZDA5NjU1MDQwMDNjOQ" 
-                               target="_blank" 
-                               style="display: inline-block; padding: 8px 16px; background: #0ea5e9; color: white; text-decoration: none; border-radius: 6px; font-size: 11px; font-weight: 500;">
-                                📊 View Full Report
-                            </a>
+                <div class="report-section">
+                    <h3>💧 Liquidity Analysis</h3>
+                    <p>This section analyzes the token's liquidity across different DEX platforms to understand trading patterns and market availability.</p>
+                    
+                    <div class="liquidity-overview">
+                        <div class="liquidity-grid">
+                            <div class="liquidity-item">
+                                <strong>Total Liquidity USD:</strong> $85,695.75
+                            </div>
+                            <div class="liquidity-item">
+                                <strong>Total Buys (24h):</strong> 32,038
+                            </div>
+                            <div class="liquidity-item">
+                                <strong>Total Sells (24h):</strong> 26,877
+                            </div>
+                            <div class="liquidity-item">
+                                <strong>Total Volume (24h):</strong> $8,922,616.16
+                            </div>
+                            <div class="liquidity-item">
+                                <strong>Buy/Sell Ratio:</strong> 1.19
+                            </div>
+                        </div>
+                        
+                        <div class="dex-distribution">
+                            <h4>DEX Distribution:</h4>
+                            <div class="dex-item">
+                                <strong>PUMPSWAP:</strong> $77,353.93 (24h: 28768 buys, 23360 sells)
+                            </div>
+                            <div class="dex-item">
+                                <strong>METEORA:</strong> $8,269.99 (24h: 2823 buys, 2955 sells)
+                            </div>
+                            <div class="dex-item">
+                                <strong>RAYDIUM:</strong> $71.83 (24h: 447 buys, 562 sells)
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="analysis-history">
-                        <h4>Recent Analysis</h4>
-                        <div class="history-item">
-                            <span class="history-token">0x1234...5678</span>
-                            <span class="history-risk low">Low Risk</span>
+                <div class="report-section">
+                    <h3>🚨 Combined Risk Assessment</h3>
+                    <p>This section combines insights from both funding source and token acquisition analysis to provide an overall risk assessment.</p>
+                    
+                    <div class="risk-assessment">
+                        <div class="risk-summary">
+                            <div class="risk-score-large">
+                                <strong>Combined Risk Score:</strong> 31.35/100
+                            </div>
+                            <div class="risk-level-large risk-medium">
+                                <strong>Risk Level:</strong> MEDIUM
+                            </div>
                         </div>
-                        <div class="history-item">
-                            <span class="history-token">0x8765...4321</span>
-                            <span class="history-risk high">High Risk</span>
+                        
+                        <div class="contributing-factors">
+                            <h4>Contributing Factors:</h4>
+                            <div class="factor-item">
+                                <strong>Funding Chain Risk:</strong> 28.64/100
+                            </div>
+                            <div class="factor-item">
+                                <strong>Token Source Risk:</strong> 52.75/100
+                            </div>
+                            <div class="factor-item">
+                                <strong>Cross-Analysis Correlation:</strong> 0.00/100
+                            </div>
                         </div>
-                        <div class="history-item">
-                            <span class="history-token">0xabcd...efgh</span>
-                            <span class="history-risk medium">Medium Risk</span>
-                        </div>
-                        <div class="history-item">
-                            <span class="history-token">0x9876...5432</span>
-                            <span class="history-risk extreme">Extreme Risk</span>
+                        
+                        <div class="risk-summary-text">
+                            <h4>Summary:</h4>
+                            <ol>
+                                <li>MODERATE RISK: Some coordination indicators present, requires careful monitoring</li>
+                                <li>Token distribution shows 0 critical pattern(s) with 52.7/100 risk score</li>
+                            </ol>
                         </div>
                     </div>
+                </div>
+
+                <div class="report-section">
+                    <h3>🤖 AI Expert Analysis</h3>
+                    <div class="ai-analysis">
+                        <div class="analysis-point">
+                            <h4>1. Token Overview</h4>
+                            <p>The token has 2,718 holders with a market cap of approximately $286K and a supply of 999,988,175341545 (with 6 decimals). Both the Mint Authority and Freeze Authority are set to null (immutable), which is positive. There is no risk associated with these controls since neither authority is active.</p>
+                        </div>
+                        
+                        <div class="analysis-point">
+                            <h4>2. Liquidity</h4>
+                            <p>Total liquidity is reported at ~$85,695 USD with an impressive 24h volume of nearly $8.92M and a buy/sell ratio of 1.19. The majority of liquidity (over 90%) is concentrated on PUMPSWAP (approximately $77,354), while METEORA accounts for about $8,270 and RAYDIUM for a negligible ~$72.</p>
+                        </div>
+                        
+                        <div class="analysis-point">
+                            <h4>3. Funding Source Analysis</h4>
+                            <p>Funding source charts indicate three main clusters: "Binance + Pump.fun + T..." (57.35% of addresses), "Unknown exchange" (33.82%), and "Coinbase" (8.82%). There's no evidence of overwhelming centralisation, and the overall funding risk score of 28.64/100 (LOW) appears justified.</p>
+                        </div>
+                        
+                        <div class="analysis-point">
+                            <h4>4. Token Source Analysis</h4>
+                            <p>The first token transaction for holders originates from a central source labeled as "Token_creator + Pump.fun" with an associated cross-chain bridge mechanism. Although the risk score here is 52.75/100 (MEDIUM), the cross-chain minter exception applies – coordinated batch distributions from a recognized cross-chain source are acceptable if properly validated.</p>
+                        </div>
+                        
+                        <div class="analysis-point">
+                            <h4>5. Combined Risk Assessment</h4>
+                            <p>The automated risk scores from both funding (28.64/100) and token source (52.75/100) analyses combine to yield an overall risk score of 31.35/100, categorized as MEDIUM. The secure token authorities, the fact that traditional exchange-related funding sources dominate, and the recognized cross-chain distribution mechanism help mitigate what might otherwise have been a higher risk.</p>
+                        </div>
+                        
+                        <div class="overall-assessment">
+                            <h4>OVERALL RISK ASSESSMENT: 🟡 MEDIUM</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-footer">
+                    <p><em>This report was generated automatically. Manual review is recommended for critical findings.</em></p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const riskLevels = [
-            { 
-                level: 'risk-low', 
-                text: 'Seems Legit', 
-                description: 'This token appears to be legitimate with proper development and community backing.',
-                position: 20,
-                recommendation: 'This token appears safe for investment. Consider it for your portfolio.'
-            },
-            { 
-                level: 'risk-medium', 
-                text: 'Devs are Anonymous, Proceed with Degeneracy', 
-                description: 'Anonymous developers detected. Proceed with caution and only invest what you can afford to lose.',
-                position: 40,
-                recommendation: 'Proceed with extreme caution. Only invest what you can afford to lose completely.'
-            },
-            { 
-                level: 'risk-high', 
-                text: 'High Chance of Becoming Exit Liquidity', 
-                description: 'Multiple red flags detected. High probability of rug pull or exit scam.',
-                position: 70,
-                recommendation: 'High risk detected! Avoid this token unless you enjoy losing money.'
-            },
-            { 
-                level: 'risk-extreme', 
-                text: 'This is a Certified Rug. Run.', 
-                description: 'Extreme risk detected! This token shows all signs of being a rug pull. Avoid at all costs.',
-                position: 90,
-                recommendation: '🚨 CERTIFIED RUG! Do not invest. Run away as fast as possible!'
-            }
-        ];
-
-        const riskFactorTemplates = [
-            { low: '✅ Verified Contract', medium: '⚠️ Unverified Contract', high: '🚨 Suspicious Contract' },
-            { low: '✅ Doxxed Team', medium: '⚠️ Anonymous Devs', high: '🚨 Fake Team' },
-            { low: '✅ Reasonable Supply', medium: '⚠️ High Supply', high: '🚨 Excessive Supply' },
-            { low: '✅ Good Liquidity', medium: '⚠️ Low Liquidity', high: '🚨 No Liquidity' },
-            { low: '✅ Good Holder Distribution', medium: '⚠️ Low Holder Count', high: '🚨 Concentrated Holdings' },
-            { low: '✅ Normal Activity', medium: '⚠️ Suspicious Activity', high: '🚨 Bot Activity' }
-        ];
-
         function analyzeToken() {
             const tokenAddress = document.getElementById('tokenAddress').value.trim();
             const analyzeBtn = document.querySelector('.analyze-btn');
-            const analysisStatus = document.getElementById('analysisStatus');
-            const tokenInfo = document.getElementById('tokenInfo');
-            const riskFactors = document.getElementById('riskFactors');
-            const metricsGrid = document.getElementById('metricsGrid');
-            const recommendation = document.getElementById('recommendation');
             
             if (!tokenAddress || tokenAddress.length < 42) {
                 alert('Please enter a valid token address');
@@ -614,132 +817,21 @@
             // Show loading state
             analyzeBtn.disabled = true;
             analyzeBtn.innerHTML = '<span class="loading-spinner"></span> Analyzing...';
-            analysisStatus.style.display = 'block';
-            tokenInfo.style.display = 'none';
-            riskFactors.style.display = 'none';
-            metricsGrid.style.display = 'none';
-            recommendation.style.display = 'none';
 
-            // Simulate analysis with random results
-            const analysisTime = Math.random() * 15 + 5; // 5-20 minutes
-            
+            // Simulate analysis
             setTimeout(() => {
-                // Generate random risk level
-                const randomRisk = riskLevels[Math.floor(Math.random() * riskLevels.length)];
-                
-                // Update meter
-                updateMeter(randomRisk);
-                
-                // Update token info with mock data
-                updateTokenInfo(tokenAddress);
-                
-                // Update risk factors
-                updateRiskFactors(randomRisk);
-                
-                // Update metrics
-                updateMetrics(randomRisk);
-                
-                // Update recommendation
-                updateRecommendation(randomRisk);
-                
                 // Hide loading state
                 analyzeBtn.disabled = false;
                 analyzeBtn.innerHTML = 'Analyze Token';
-                analysisStatus.style.display = 'none';
-                tokenInfo.style.display = 'block';
-                riskFactors.style.display = 'block';
-                metricsGrid.style.display = 'grid';
-                recommendation.style.display = 'block';
                 
-            }, Math.min(analysisTime * 1000, 3000)); // Cap at 3 seconds for demo
+                // Show success message
+                alert('Analysis complete! Report displayed below.');
+            }, 2000);
         }
 
-        function updateMeter(risk) {
-            const needle = document.getElementById('meterNeedle');
-            const riskLevel = document.getElementById('riskLevel');
-            const riskDescription = document.getElementById('riskDescription');
-            
-            needle.style.left = risk.position + '%';
-            
-            // Update risk level
-            riskLevel.className = `risk-level ${risk.level}`;
-            riskLevel.textContent = risk.text;
-            
-            // Update description
-            riskDescription.textContent = risk.description;
-        }
-
-        function updateTokenInfo(address) {
-            // Mock token data
-            const mockTokens = [
-                { symbol: 'SAFE', name: 'SafeMoon', supply: '1T', liquidity: '$2.5M', marketCap: '$50M', holders: '1.2M', age: '2 years', volume: '$5M' },
-                { symbol: 'RUG', name: 'RugPull', supply: '100M', liquidity: '$50K', marketCap: '$1M', holders: '500', age: '1 month', volume: '$100K' },
-                { symbol: 'LEGIT', name: 'LegitCoin', supply: '1B', liquidity: '$10M', marketCap: '$100M', holders: '50K', age: '6 months', volume: '$2M' },
-                { symbol: 'SCAM', name: 'ScamToken', supply: '999T', liquidity: '$1K', marketCap: '$100K', holders: '100', age: '1 week', volume: '$1K' }
-            ];
-            
-            const randomToken = mockTokens[Math.floor(Math.random() * mockTokens.length)];
-            
-            document.getElementById('tokenSymbol').textContent = randomToken.symbol;
-            document.getElementById('tokenName').textContent = randomToken.name;
-            document.getElementById('tokenSupply').textContent = randomToken.supply;
-            document.getElementById('tokenLiquidity').textContent = randomToken.liquidity;
-            document.getElementById('tokenMarketCap').textContent = randomToken.marketCap;
-            document.getElementById('tokenHolders').textContent = randomToken.holders;
-            document.getElementById('tokenAge').textContent = randomToken.age;
-            document.getElementById('tokenVolume').textContent = randomToken.volume;
-        }
-
-        function updateRiskFactors(risk) {
-            const riskIndex = riskLevels.indexOf(risk);
-            const factorLevels = ['low', 'medium', 'high', 'extreme'];
-            const currentLevel = factorLevels[riskIndex] || 'low';
-            
-            riskFactorTemplates.forEach((template, index) => {
-                const factorElement = document.getElementById(`riskFactor${index + 1}`);
-                if (factorElement) {
-                    factorElement.className = `risk-factor ${currentLevel}`;
-                    factorElement.textContent = template[currentLevel] || template.low;
-                }
-            });
-        }
-
-        function updateMetrics(risk) {
-            const riskIndex = riskLevels.indexOf(risk);
-            const metricLevels = ['good', 'warning', 'danger', 'danger'];
-            const currentLevel = metricLevels[riskIndex] || 'good';
-            
-            // Mock metrics data
-            const mockMetrics = [
-                { marketCap: '$50M', holders: '1.2M', volume: '$5M', age: '2 years' },
-                { marketCap: '$1M', holders: '500', volume: '$100K', age: '1 month' },
-                { marketCap: '$100M', holders: '50K', volume: '$2M', age: '6 months' },
-                { marketCap: '$100K', holders: '100', volume: '$1K', age: '1 week' }
-            ];
-            
-            const randomMetrics = mockMetrics[Math.floor(Math.random() * mockMetrics.length)];
-            
-            document.getElementById('metricMarketCap').textContent = randomMetrics.marketCap;
-            document.getElementById('metricMarketCap').className = `metric-value ${currentLevel}`;
-            
-            document.getElementById('metricHolders').textContent = randomMetrics.holders;
-            document.getElementById('metricHolders').className = `metric-value ${currentLevel}`;
-            
-            document.getElementById('metricVolume').textContent = randomMetrics.volume;
-            document.getElementById('metricVolume').className = `metric-value ${currentLevel}`;
-            
-            document.getElementById('metricAge').textContent = randomMetrics.age;
-            document.getElementById('metricAge').className = `metric-value ${currentLevel}`;
-        }
-
-        function updateRecommendation(risk) {
-            const recommendationText = document.getElementById('recommendationText');
-            recommendationText.textContent = risk.recommendation;
-        }
-
-        // Initialize with default state
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            updateMeter(riskLevels[0]);
+            // Report is already displayed with real data
         });
     </script>
 </body>
