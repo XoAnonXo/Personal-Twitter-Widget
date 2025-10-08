@@ -14,10 +14,10 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f5f5f5;
+            background: #1a1a2e;
             margin: 0;
             padding: 20px;
-            color: #333;
+            color: #ffffff;
             line-height: 1.6;
         }
 
@@ -30,11 +30,11 @@
         .rug-meter-widget {
             width: 920px;
             height: 730px;
-            background: white;
-            border: 1px solid #e5e7eb;
+            background: #16213e;
+            border: 1px solid #2d3748;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             font-size: 12px;
             overflow-y: auto;
             overflow-x: hidden;
@@ -42,7 +42,7 @@
             flex-direction: column;
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 #f1f5f9;
+            scrollbar-color: #4a5568 #2d3748;
         }
 
         .rug-meter-widget::-webkit-scrollbar {
@@ -50,17 +50,17 @@
         }
 
         .rug-meter-widget::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #2d3748;
             border-radius: 3px;
         }
 
         .rug-meter-widget::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
+            background: #4a5568;
             border-radius: 3px;
         }
 
         .rug-meter-widget::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+            background: #718096;
         }
 
         .widget-header {
@@ -69,13 +69,39 @@
             align-items: center;
             margin-bottom: 16px;
             padding-bottom: 12px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #4a5568;
         }
 
         .widget-title {
             font-size: 16px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .token-input {
+            background: #2d3748;
+            border: 1px solid #4a5568;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            width: 200px;
+            outline: none;
+        }
+
+        .token-input:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+        }
+
+        .token-input::placeholder {
+            color: #a0aec0;
         }
 
         .analyze-btn {
@@ -372,19 +398,19 @@
             text-align: center;
             margin-bottom: 24px;
             padding-bottom: 16px;
-            border-bottom: 2px solid #e5e7eb;
+            border-bottom: 2px solid #4a5568;
         }
 
         .report-header h2 {
             font-size: 20px;
             font-weight: 700;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 12px;
         }
 
         .report-meta {
             font-size: 12px;
-            color: #666;
+            color: #a0aec0;
         }
 
         .report-meta p {
@@ -392,7 +418,8 @@
         }
 
         .report-meta code {
-            background: #f1f5f9;
+            background: #2d3748;
+            color: #e2e8f0;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
@@ -401,21 +428,21 @@
         .report-section {
             margin-bottom: 24px;
             padding: 16px;
-            background: #f8fafc;
+            background: #1a202c;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #4a5568;
         }
 
         .report-section h3 {
             font-size: 16px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 12px;
         }
 
         .report-section p {
             font-size: 12px;
-            color: #666;
+            color: #a0aec0;
             margin-bottom: 12px;
             line-height: 1.5;
         }
@@ -429,7 +456,7 @@
 
         .overview-item {
             font-size: 12px;
-            color: #333;
+            color: #ffffff;
             padding: 6px 0;
         }
 
@@ -440,18 +467,19 @@
         .security-analysis h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
         .security-item {
             font-size: 12px;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
         .security-item code {
-            background: #f1f5f9;
+            background: #2d3748;
+            color: #e2e8f0;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
@@ -466,28 +494,28 @@
 
         .liquidity-item {
             font-size: 12px;
-            color: #333;
+            color: #ffffff;
             padding: 6px 0;
         }
 
         .dex-distribution h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
         .dex-item {
             font-size: 12px;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
         .risk-assessment {
-            background: white;
+            background: #2d3748;
             padding: 16px;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #4a5568;
         }
 
         .risk-summary {
@@ -496,14 +524,14 @@
             align-items: center;
             margin-bottom: 16px;
             padding: 12px;
-            background: #f0f9ff;
+            background: #1a202c;
             border-radius: 6px;
         }
 
         .risk-score-large {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
         }
 
         .risk-level-large {
@@ -514,33 +542,33 @@
         }
 
         .risk-level-large.risk-medium {
-            background: #fef3c7;
-            color: #92400e;
+            background: #744210;
+            color: #fbbf24;
         }
 
         .contributing-factors h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
         .factor-item {
             font-size: 12px;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
         .risk-summary-text h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
         .risk-summary-text ol {
             font-size: 12px;
-            color: #333;
+            color: #ffffff;
             margin-left: 16px;
         }
 
@@ -549,10 +577,10 @@
         }
 
         .ai-analysis {
-            background: white;
+            background: #2d3748;
             padding: 16px;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #4a5568;
         }
 
         .analysis-point {
@@ -562,18 +590,18 @@
         .analysis-point h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 8px;
         }
 
         .analysis-point p {
             font-size: 12px;
-            color: #666;
+            color: #a0aec0;
             line-height: 1.5;
         }
 
         .overall-assessment {
-            background: #fef3c7;
+            background: #744210;
             padding: 12px;
             border-radius: 6px;
             text-align: center;
@@ -583,7 +611,7 @@
         .overall-assessment h4 {
             font-size: 16px;
             font-weight: 700;
-            color: #92400e;
+            color: #fbbf24;
             margin: 0;
         }
 
@@ -591,12 +619,12 @@
             text-align: center;
             margin-top: 24px;
             padding-top: 16px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid #4a5568;
         }
 
         .report-footer p {
             font-size: 11px;
-            color: #666;
+            color: #a0aec0;
             font-style: italic;
         }
 
@@ -632,7 +660,10 @@
         <div class="rug-meter-widget">
             <div class="widget-header">
                 <div class="widget-title">🚨 Rug-O-Meter</div>
-                <button class="analyze-btn" onclick="analyzeToken()">Analyze Token</button>
+                <div class="header-controls">
+                    <input type="text" class="token-input" id="tokenAddress" placeholder="Enter token address..." maxlength="42">
+                    <button class="analyze-btn" onclick="analyzeToken()">Analyze Token</button>
+                </div>
             </div>
 
             <div class="report-content" id="reportContent">
