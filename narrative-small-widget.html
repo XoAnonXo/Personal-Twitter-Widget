@@ -108,6 +108,9 @@
             margin-bottom: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .narrative-item:hover {
@@ -115,23 +118,29 @@
             background: #f3f4f6;
         }
 
-        .narrative-item.expanded {
-            border-color: #8B5CF6;
-            background: #faf5ff;
+        .narrative-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
         }
 
-        .narrative-header {
+        .narrative-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 8px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
         }
 
         .narrative-title {
             font-size: 11px;
             font-weight: 500;
             color: #333;
-            flex: 1;
         }
 
         .narrative-score {
@@ -156,43 +165,6 @@
         .score-low {
             background: #fee2e2;
             color: #991b1b;
-        }
-
-        .narrative-description {
-            font-size: 10px;
-            color: #666;
-            margin-bottom: 6px;
-        }
-
-        .news-content {
-            display: none;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .news-content.show {
-            display: block;
-        }
-
-        .news-item {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            padding: 6px;
-            margin-bottom: 4px;
-            font-size: 9px;
-        }
-
-        .news-title {
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 2px;
-        }
-
-        .news-summary {
-            color: #666;
-            line-height: 1.3;
         }
 
         .loading-spinner {
@@ -242,102 +214,74 @@
             <div class="narratives-section">
                 <div class="section-title">Top Narratives</div>
                 
-                <div class="narrative-item" onclick="toggleNarrative('small', 'ai-crypto')">
-                    <div class="narrative-header">
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">AI</div>
                         <div class="narrative-title">AI + Crypto</div>
-                        <div class="narrative-score score-high">87</div>
                     </div>
-                    <div class="narrative-description">Artificial intelligence integration with blockchain technology</div>
-                    <div class="news-content" id="small-ai-crypto-news">
-                        <div class="news-item">
-                            <div class="news-title">OpenAI Partners with Ethereum</div>
-                            <div class="news-summary">Major collaboration announced for AI-powered smart contracts...</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-title">AI Tokens Surge 15%</div>
-                            <div class="news-summary">Market rally driven by new AI infrastructure developments...</div>
-                        </div>
-                    </div>
+                    <div class="narrative-score score-high">87</div>
                 </div>
 
-                <div class="narrative-item" onclick="toggleNarrative('small', 'defi-yield')">
-                    <div class="narrative-header">
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">DF</div>
                         <div class="narrative-title">DeFi Yield</div>
-                        <div class="narrative-score score-medium">72</div>
                     </div>
-                    <div class="narrative-description">Decentralized finance yield farming and liquidity mining</div>
-                    <div class="news-content" id="small-defi-yield-news">
-                        <div class="news-item">
-                            <div class="news-title">New Yield Protocol Launches</div>
-                            <div class="news-summary">Offering 25% APY on stablecoin deposits...</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-title">Liquidity Mining Rewards Increase</div>
-                            <div class="news-summary">Major DeFi protocols boost rewards for early adopters...</div>
-                        </div>
-                    </div>
+                    <div class="narrative-score score-medium">72</div>
                 </div>
 
-                <div class="narrative-item" onclick="toggleNarrative('small', 'layer2')">
-                    <div class="narrative-header">
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">L2</div>
                         <div class="narrative-title">Layer 2 Scaling</div>
-                        <div class="narrative-score score-high">91</div>
                     </div>
-                    <div class="narrative-description">Ethereum scaling solutions and rollup technology</div>
-                    <div class="news-content" id="small-layer2-news">
-                        <div class="news-item">
-                            <div class="news-title">Arbitrum One Upgrade</div>
-                            <div class="news-summary">New features reduce transaction costs by 40%...</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-title">Polygon zkEVM Mainnet</div>
-                            <div class="news-summary">Zero-knowledge proof technology goes live...</div>
-                        </div>
-                    </div>
+                    <div class="narrative-score score-high">91</div>
                 </div>
 
-                <div class="narrative-item" onclick="toggleNarrative('small', 'gaming')">
-                    <div class="narrative-header">
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">GF</div>
                         <div class="narrative-title">GameFi</div>
-                        <div class="narrative-score score-medium">68</div>
                     </div>
-                    <div class="narrative-description">Gaming and blockchain integration with play-to-earn</div>
-                    <div class="news-content" id="small-gaming-news">
-                        <div class="news-item">
-                            <div class="news-title">New P2E Game Launch</div>
-                            <div class="news-summary">Revolutionary gaming experience with NFT rewards...</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-title">Gaming Token Rally</div>
-                            <div class="news-summary">Major gaming tokens surge on platform adoption...</div>
-                        </div>
+                    <div class="narrative-score score-medium">68</div>
+                </div>
+
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">NF</div>
+                        <div class="narrative-title">NFTs</div>
                     </div>
+                    <div class="narrative-score score-low">45</div>
+                </div>
+
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">ME</div>
+                        <div class="narrative-title">Meme Coins</div>
+                    </div>
+                    <div class="narrative-score score-medium">76</div>
+                </div>
+
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">RW</div>
+                        <div class="narrative-title">RWA</div>
+                    </div>
+                    <div class="narrative-score score-high">83</div>
+                </div>
+
+                <div class="narrative-item">
+                    <div class="narrative-left">
+                        <div class="narrative-logo" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">ZK</div>
+                        <div class="narrative-title">Zero Knowledge</div>
+                    </div>
+                    <div class="narrative-score score-high">89</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function toggleNarrative(size, narrativeId) {
-            const newsContent = document.getElementById(`${size}-${narrativeId}-news`);
-            const narrativeItem = newsContent.closest('.narrative-item');
-            
-            if (newsContent.classList.contains('show')) {
-                newsContent.classList.remove('show');
-                narrativeItem.classList.remove('expanded');
-            } else {
-                // Close all other expanded narratives
-                document.querySelectorAll('.news-content.show').forEach(content => {
-                    content.classList.remove('show');
-                    content.closest('.narrative-item').classList.remove('expanded');
-                });
-                
-                // Open this one
-                newsContent.classList.add('show');
-                narrativeItem.classList.add('expanded');
-            }
-        }
-
         function syncNarratives(size) {
             const button = event.target;
             button.disabled = true;
@@ -353,11 +297,18 @@
             }, 2000);
         }
 
-        // Initialize with first narrative expanded
+        // Add hover effects to narrative items
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                toggleNarrative('small', 'ai-crypto');
-            }, 500);
+            const narrativeItems = document.querySelectorAll('.narrative-item');
+            narrativeItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(2px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
         });
     </script>
 </body>
