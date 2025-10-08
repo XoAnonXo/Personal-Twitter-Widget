@@ -110,52 +110,77 @@
             border-color: #7C3AED;
         }
 
-        .quick-links {
+        .widget-sizes {
             background: #f1f5f9;
             border-radius: 12px;
             padding: 30px;
             margin-top: 30px;
         }
 
-        .quick-links h3 {
+        .size-section h3 {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 20px;
             color: #333;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .quick-link {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.2s ease;
             text-align: center;
         }
 
-        .quick-link:hover {
-            background: #8B5CF6;
-            color: white;
-            border-color: #7C3AED;
-            transform: translateY(-1px);
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .status-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10B981;
-            margin-right: 8px;
+        .size-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .size-item:hover {
+            border-color: #8B5CF6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
+        }
+
+        .size-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .size-dimensions {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 16px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .size-links {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .size-link {
+            background: #8B5CF6;
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .size-link:hover {
+            background: #7C3AED;
+            transform: translateY(-1px);
         }
 
         @media (max-width: 768px) {
@@ -220,69 +245,47 @@
                 </div>
             </div>
 
-            <div class="quick-links">
-                <h3>🚀 Quick Access Links</h3>
-                <div class="quick-grid">
-                    <a href="index.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        News Widgets Hub
-                    </a>
-                    <a href="portfolio-index.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Portfolio Widgets Hub
-                    </a>
-                    <a href="narrative-index.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Narrative Widgets Hub
-                    </a>
-                    <a href="small-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Small News Widget
-                    </a>
-                    <a href="medium-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Medium News Widget
-                    </a>
-                    <a href="large-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Large News Widget
-                    </a>
-                    <a href="full-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Full News Widget
-                    </a>
-                    <a href="portfolio-small-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Small Portfolio Widget
-                    </a>
-                    <a href="portfolio-medium-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Medium Portfolio Widget
-                    </a>
-                    <a href="portfolio-large-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Large Portfolio Widget
-                    </a>
-                    <a href="portfolio-full-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Full Portfolio Widget
-                    </a>
-                    <a href="narrative-small-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Small Narrative Widget
-                    </a>
-                    <a href="narrative-medium-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Medium Narrative Widget
-                    </a>
-                    <a href="narrative-large-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Large Narrative Widget
-                    </a>
-                    <a href="narrative-full-widget.html" class="quick-link">
-                        <span class="status-indicator"></span>
-                        Full Narrative Widget
-                    </a>
+            <div class="widget-sizes">
+                <div class="size-section">
+                    <h3>📏 Widget Sizes</h3>
+                    <div class="size-grid">
+                        <div class="size-item">
+                            <div class="size-title">Small</div>
+                            <div class="size-dimensions">215×300px</div>
+                            <div class="size-links">
+                                <a href="small-widget.html" class="size-link">News</a>
+                                <a href="portfolio-small-widget.html" class="size-link">Portfolio</a>
+                                <a href="narrative-small-widget.html" class="size-link">Narrative</a>
+                            </div>
+                        </div>
+                        <div class="size-item">
+                            <div class="size-title">Medium</div>
+                            <div class="size-dimensions">450×300px</div>
+                            <div class="size-links">
+                                <a href="medium-widget.html" class="size-link">News</a>
+                                <a href="portfolio-medium-widget.html" class="size-link">Portfolio</a>
+                                <a href="narrative-medium-widget.html" class="size-link">Narrative</a>
+                            </div>
+                        </div>
+                        <div class="size-item">
+                            <div class="size-title">Large</div>
+                            <div class="size-dimensions">946×201px</div>
+                            <div class="size-links">
+                                <a href="large-widget.html" class="size-link">News</a>
+                                <a href="portfolio-large-widget.html" class="size-link">Portfolio</a>
+                                <a href="narrative-large-widget.html" class="size-link">Narrative</a>
+                            </div>
+                        </div>
+                        <div class="size-item">
+                            <div class="size-title">Full</div>
+                            <div class="size-dimensions">920×730px</div>
+                            <div class="size-links">
+                                <a href="full-widget.html" class="size-link">News</a>
+                                <a href="portfolio-full-widget.html" class="size-link">Portfolio</a>
+                                <a href="narrative-full-widget.html" class="size-link">Narrative</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -302,11 +305,11 @@
                 });
             });
 
-            // Add hover effects to quick links
-            const quickLinks = document.querySelectorAll('.quick-link');
-            quickLinks.forEach(link => {
+            // Add hover effects to size links
+            const sizeLinks = document.querySelectorAll('.size-link');
+            sizeLinks.forEach(link => {
                 link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
+                    this.style.transform = 'translateY(-1px)';
                 });
                 
                 link.addEventListener('mouseleave', function() {
