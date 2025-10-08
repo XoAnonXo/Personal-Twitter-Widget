@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Menu - Interactive Widget Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .widget-sets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .widget-set {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .widget-set:hover {
+            border-color: #8B5CF6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+        }
+
+        .widget-set h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .widget-set p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .widget-sizes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .widget-size {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.2s ease;
+        }
+
+        .widget-size:hover {
+            background: #8B5CF6;
+            color: white;
+            border-color: #7C3AED;
+        }
+
+        .quick-links {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .quick-links h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .quick-link {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .quick-link:hover {
+            background: #8B5CF6;
+            color: white;
+            border-color: #7C3AED;
+            transform: translateY(-1px);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .widget-sets {
+                grid-template-columns: 1fr;
+            }
+            
+            .widget-sizes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎛️ Widget Collection</h1>
+            <p>Interactive Portfolio & News Analysis Widgets</p>
+        </div>
+
+        <div class="content">
+            <div class="widget-sets">
+                <div class="widget-set" onclick="window.location.href='index.html'">
+                    <h2>📰 News Widgets</h2>
+                    <p>Real-time news analysis and sentiment tracking for cryptocurrency and DeFi markets. Features AI-powered insights and social media monitoring.</p>
+                    <div class="widget-sizes">
+                        <div class="widget-size">Small (215×300px)</div>
+                        <div class="widget-size">Medium (450×300px)</div>
+                        <div class="widget-size">Large (946×201px)</div>
+                        <div class="widget-size">Full (920×730px)</div>
+                    </div>
+                </div>
+
+                <div class="widget-set" onclick="window.location.href='portfolio-index.html'">
+                    <h2>💼 Portfolio Widgets</h2>
+                    <p>Comprehensive portfolio analysis with wallet scanning, protocol detection, and market sentiment analysis. Includes risk assessment and performance tracking.</p>
+                    <div class="widget-sizes">
+                        <div class="widget-size">Small (215×300px)</div>
+                        <div class="widget-size">Medium (450×300px)</div>
+                        <div class="widget-size">Large (946×201px)</div>
+                        <div class="widget-size">Full (920×730px)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <h3>🚀 Quick Access Links</h3>
+                <div class="quick-grid">
+                    <a href="index.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        News Widgets Hub
+                    </a>
+                    <a href="portfolio-index.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Portfolio Widgets Hub
+                    </a>
+                    <a href="small-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Small News Widget
+                    </a>
+                    <a href="medium-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Medium News Widget
+                    </a>
+                    <a href="large-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Large News Widget
+                    </a>
+                    <a href="full-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Full News Widget
+                    </a>
+                    <a href="portfolio-small-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Small Portfolio Widget
+                    </a>
+                    <a href="portfolio-medium-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Medium Portfolio Widget
+                    </a>
+                    <a href="portfolio-large-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Large Portfolio Widget
+                    </a>
+                    <a href="portfolio-full-widget.html" class="quick-link">
+                        <span class="status-indicator"></span>
+                        Full Portfolio Widget
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and enhanced interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effects to widget sets
+            const widgetSets = document.querySelectorAll('.widget-set');
+            widgetSets.forEach(set => {
+                set.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Add hover effects to quick links
+            const quickLinks = document.querySelectorAll('.quick-link');
+            quickLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
