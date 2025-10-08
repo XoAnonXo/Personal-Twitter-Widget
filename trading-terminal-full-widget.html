@@ -30,19 +30,20 @@
         .trading-terminal-widget {
             width: 920px;
             height: 730px;
-            background: #1f2937;
-            border: 1px solid #374151;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-size: 12px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 0px;
+            padding: 16px;
+            box-shadow: none;
+            font-size: 11px;
             overflow-y: auto;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: #4b5563 #374151;
+            scrollbar-color: #333 #0a0a0a;
+            font-family: 'Courier New', monospace;
         }
 
         .trading-terminal-widget::-webkit-scrollbar {
@@ -50,26 +51,26 @@
         }
 
         .trading-terminal-widget::-webkit-scrollbar-track {
-            background: #374151;
-            border-radius: 3px;
+            background: #0a0a0a;
+            border-radius: 0px;
         }
 
         .trading-terminal-widget::-webkit-scrollbar-thumb {
-            background: #4b5563;
-            border-radius: 3px;
+            background: #333;
+            border-radius: 0px;
         }
 
         .trading-terminal-widget::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
+            background: #555;
         }
 
         .terminal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #374151;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
         }
 
         .terminal-logo {
@@ -79,22 +80,22 @@
         }
 
         .logo-circle {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #10b981, #3b82f6);
+            background: linear-gradient(45deg, #00ff00, #00ff88);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            color: black;
         }
 
         .terminal-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #f9fafb;
+            font-size: 14px;
+            font-weight: bold;
+            color: #00ff00;
         }
 
         .header-controls {
@@ -109,54 +110,54 @@
         }
 
         .timeframe-btn {
-            background: #374151;
-            color: #9ca3af;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 11px;
+            background: #111;
+            color: #888;
+            border: 1px solid #333;
+            padding: 4px 8px;
+            border-radius: 0px;
+            font-size: 9px;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .timeframe-btn:hover {
-            background: #4b5563;
-            color: #f9fafb;
+            background: #333;
+            color: #00ff00;
         }
 
         .timeframe-btn.active {
-            background: #10b981;
-            color: white;
+            background: #00ff00;
+            color: black;
         }
 
         .chart-type-selector {
-            background: #374151;
-            border: 1px solid #4b5563;
-            color: #f9fafb;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 11px;
+            background: #111;
+            border: 1px solid #333;
+            color: #00ff00;
+            padding: 4px 8px;
+            border-radius: 0px;
+            font-size: 9px;
             outline: none;
             cursor: pointer;
         }
 
         .chart-type-selector:focus {
-            border-color: #10b981;
+            border-color: #00ff00;
         }
 
         .connection-status {
             display: flex;
             align-items: center;
             gap: 6px;
-            font-size: 12px;
-            color: #9ca3af;
+            font-size: 10px;
+            color: #888;
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #10b981;
+            background: #00ff00;
         }
 
         .main-content {
@@ -562,8 +563,8 @@
         <div class="trading-terminal-widget">
             <div class="terminal-header">
                 <div class="terminal-logo">
-                    <div class="logo-circle">TT</div>
-                    <div class="terminal-title">Trading Terminal</div>
+                    <div class="logo-circle">GG</div>
+                    <div class="terminal-title">GG Good Game</div>
                 </div>
                 <div class="header-controls">
                     <div class="timeframe-selector">

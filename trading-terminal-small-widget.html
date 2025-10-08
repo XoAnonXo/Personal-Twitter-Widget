@@ -30,19 +30,20 @@
         .trading-terminal-widget {
             width: 215px;
             height: 300px;
-            background: #1f2937;
-            border: 1px solid #374151;
-            border-radius: 8px;
-            padding: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-size: 10px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 0px;
+            padding: 8px;
+            box-shadow: none;
+            font-size: 9px;
             overflow-y: auto;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: #4b5563 #374151;
+            scrollbar-color: #333 #0a0a0a;
+            font-family: 'Courier New', monospace;
         }
 
         .trading-terminal-widget::-webkit-scrollbar {
@@ -50,165 +51,169 @@
         }
 
         .trading-terminal-widget::-webkit-scrollbar-track {
-            background: #374151;
-            border-radius: 2px;
+            background: #0a0a0a;
+            border-radius: 0px;
         }
 
         .trading-terminal-widget::-webkit-scrollbar-thumb {
-            background: #4b5563;
-            border-radius: 2px;
+            background: #333;
+            border-radius: 0px;
         }
 
         .trading-terminal-widget::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
+            background: #555;
         }
 
         .terminal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid #374151;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #333;
         }
 
         .terminal-logo {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
         }
 
         .logo-circle {
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #10b981, #3b82f6);
+            background: linear-gradient(45deg, #00ff00, #00ff88);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8px;
-            font-weight: 600;
-            color: white;
+            font-size: 6px;
+            font-weight: bold;
+            color: black;
         }
 
         .terminal-title {
-            font-size: 11px;
-            font-weight: 600;
-            color: #f9fafb;
+            font-size: 8px;
+            font-weight: bold;
+            color: #00ff00;
         }
 
         .connection-status {
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
-            background: #10b981;
+            background: #00ff00;
         }
 
         .price-section {
-            background: #374151;
-            border-radius: 4px;
-            padding: 8px;
-            margin-bottom: 8px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 0px;
+            padding: 6px;
+            margin-bottom: 6px;
             text-align: center;
         }
 
         .current-price {
-            font-size: 14px;
-            font-weight: 700;
-            color: #10b981;
+            font-size: 12px;
+            font-weight: bold;
+            color: #00ff00;
             margin-bottom: 2px;
         }
 
         .price-change {
-            font-size: 9px;
-            color: #10b981;
+            font-size: 7px;
+            color: #00ff00;
         }
 
         .price-change.negative {
-            color: #ef4444;
+            color: #ff0000;
         }
 
         .market-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            margin-bottom: 8px;
+            gap: 3px;
+            margin-bottom: 6px;
         }
 
         .stat-item {
-            background: #374151;
-            border-radius: 4px;
-            padding: 4px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 0px;
+            padding: 3px;
             text-align: center;
         }
 
         .stat-label {
-            font-size: 8px;
-            color: #9ca3af;
-            margin-bottom: 2px;
+            font-size: 6px;
+            color: #888;
+            margin-bottom: 1px;
         }
 
         .stat-value {
-            font-size: 9px;
-            font-weight: 600;
-            color: #f9fafb;
+            font-size: 7px;
+            font-weight: bold;
+            color: #00ff00;
         }
 
         .trading-panel {
-            background: #374151;
-            border-radius: 4px;
-            padding: 8px;
-            margin-bottom: 8px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 0px;
+            padding: 6px;
+            margin-bottom: 6px;
         }
 
         .trading-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            margin-bottom: 6px;
+            gap: 3px;
+            margin-bottom: 4px;
         }
 
         .trade-btn {
-            background: #10b981;
-            color: white;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 9px;
-            font-weight: 600;
+            background: #00ff00;
+            color: black;
+            border: 1px solid #333;
+            padding: 3px 6px;
+            border-radius: 0px;
+            font-size: 7px;
+            font-weight: bold;
             cursor: pointer;
             transition: background 0.2s ease;
         }
 
         .trade-btn:hover {
-            background: #059669;
+            background: #00cc00;
         }
 
         .trade-btn.sell {
-            background: #ef4444;
+            background: #ff0000;
+            color: white;
         }
 
         .trade-btn.sell:hover {
-            background: #dc2626;
+            background: #cc0000;
         }
 
         .amount-input {
-            background: #1f2937;
-            border: 1px solid #4b5563;
-            color: #f9fafb;
-            padding: 4px 6px;
-            border-radius: 4px;
-            font-size: 9px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: #00ff00;
+            padding: 3px 4px;
+            border-radius: 0px;
+            font-size: 7px;
             width: 100%;
             outline: none;
         }
 
         .amount-input:focus {
-            border-color: #10b981;
+            border-color: #00ff00;
         }
 
         .amount-input::placeholder {
-            color: #6b7280;
+            color: #666;
         }
 
         .recent-trades {
@@ -217,21 +222,21 @@
         }
 
         .trades-header {
-            font-size: 9px;
-            font-weight: 600;
-            color: #f9fafb;
-            margin-bottom: 4px;
+            font-size: 7px;
+            font-weight: bold;
+            color: #00ff00;
+            margin-bottom: 3px;
             padding-bottom: 2px;
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid #333;
         }
 
         .trade-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2px 0;
-            font-size: 8px;
-            border-bottom: 1px solid #374151;
+            padding: 1px 0;
+            font-size: 6px;
+            border-bottom: 1px solid #333;
         }
 
         .trade-item:last-child {
@@ -239,23 +244,23 @@
         }
 
         .trade-time {
-            color: #9ca3af;
+            color: #888;
         }
 
         .trade-type {
-            font-weight: 600;
+            font-weight: bold;
         }
 
         .trade-type.buy {
-            color: #10b981;
+            color: #00ff00;
         }
 
         .trade-type.sell {
-            color: #ef4444;
+            color: #ff0000;
         }
 
         .trade-amount {
-            color: #f9fafb;
+            color: #00ff00;
         }
 
         @media (max-width: 768px) {
@@ -274,8 +279,8 @@
         <div class="trading-terminal-widget">
             <div class="terminal-header">
                 <div class="terminal-logo">
-                    <div class="logo-circle">TT</div>
-                    <div class="terminal-title">Terminal</div>
+                    <div class="logo-circle">GG</div>
+                    <div class="terminal-title">GG Good Game</div>
                 </div>
                 <div class="connection-status"></div>
             </div>

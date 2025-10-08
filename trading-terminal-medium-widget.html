@@ -30,19 +30,20 @@
         .trading-terminal-widget {
             width: 450px;
             height: 300px;
-            background: #1f2937;
-            border: 1px solid #374151;
-            border-radius: 8px;
-            padding: 16px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-size: 11px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 0px;
+            padding: 12px;
+            box-shadow: none;
+            font-size: 10px;
             overflow-y: auto;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: #4b5563 #374151;
+            scrollbar-color: #333 #0a0a0a;
+            font-family: 'Courier New', monospace;
         }
 
         .trading-terminal-widget::-webkit-scrollbar {
@@ -50,26 +51,26 @@
         }
 
         .trading-terminal-widget::-webkit-scrollbar-track {
-            background: #374151;
-            border-radius: 3px;
+            background: #0a0a0a;
+            border-radius: 0px;
         }
 
         .trading-terminal-widget::-webkit-scrollbar-thumb {
-            background: #4b5563;
-            border-radius: 3px;
+            background: #333;
+            border-radius: 0px;
         }
 
         .trading-terminal-widget::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
+            background: #555;
         }
 
         .terminal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #374151;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #333;
         }
 
         .terminal-logo {
@@ -79,22 +80,22 @@
         }
 
         .logo-circle {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #10b981, #3b82f6);
+            background: linear-gradient(45deg, #00ff00, #00ff88);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            font-weight: 600;
-            color: white;
+            font-size: 8px;
+            font-weight: bold;
+            color: black;
         }
 
         .terminal-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #f9fafb;
+            font-size: 12px;
+            font-weight: bold;
+            color: #00ff00;
         }
 
         .timeframe-selector {
@@ -103,39 +104,39 @@
         }
 
         .timeframe-btn {
-            background: #374151;
-            color: #9ca3af;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 10px;
+            background: #111;
+            color: #888;
+            border: 1px solid #333;
+            padding: 3px 6px;
+            border-radius: 0px;
+            font-size: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .timeframe-btn:hover {
-            background: #4b5563;
-            color: #f9fafb;
+            background: #333;
+            color: #00ff00;
         }
 
         .timeframe-btn.active {
-            background: #10b981;
-            color: white;
+            background: #00ff00;
+            color: black;
         }
 
         .connection-status {
             display: flex;
             align-items: center;
             gap: 4px;
-            font-size: 10px;
-            color: #9ca3af;
+            font-size: 8px;
+            color: #888;
         }
 
         .status-dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #10b981;
+            background: #00ff00;
         }
 
         .main-content {
@@ -384,8 +385,8 @@
         <div class="trading-terminal-widget">
             <div class="terminal-header">
                 <div class="terminal-logo">
-                    <div class="logo-circle">TT</div>
-                    <div class="terminal-title">Trading Terminal</div>
+                    <div class="logo-circle">GG</div>
+                    <div class="terminal-title">GG Good Game</div>
                 </div>
                 <div class="timeframe-selector">
                     <button class="timeframe-btn active">1m</button>
