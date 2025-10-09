@@ -148,7 +148,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .odds-yes {
@@ -167,6 +167,39 @@
             border-radius: 4px;
             font-size: 11px;
             font-weight: 600;
+        }
+
+        .ai-odds-comparison {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 10px;
+        }
+
+        .ai-odds-yes {
+            color: #00ff00;
+            font-weight: 600;
+        }
+
+        .ai-odds-no {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .odds-difference {
+            font-size: 9px;
+            color: #888888;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .odds-difference.positive {
+            color: #00ff00;
+        }
+
+        .odds-difference.negative {
+            color: #ff6b6b;
         }
 
         .market-info {
@@ -372,6 +405,11 @@
                             <span class="odds-yes">YES 65%</span>
                             <span class="odds-no">NO 35%</span>
                         </div>
+                        <div class="ai-odds-comparison">
+                            <span class="ai-odds-yes">AI: 72%</span>
+                            <span class="ai-odds-no">AI: 28%</span>
+                        </div>
+                        <div class="odds-difference positive">+7% vs market</div>
                         <div class="market-info">
                             <span class="liquidity">$2.1M liquidity</span>
                             <span class="time-remaining">180 days</span>
@@ -384,6 +422,11 @@
                             <span class="odds-yes">YES 78%</span>
                             <span class="odds-no">NO 22%</span>
                         </div>
+                        <div class="ai-odds-comparison">
+                            <span class="ai-odds-yes">AI: 75%</span>
+                            <span class="ai-odds-no">AI: 25%</span>
+                        </div>
+                        <div class="odds-difference negative">-3% vs market</div>
                         <div class="market-info">
                             <span class="liquidity">$1.8M liquidity</span>
                             <span class="time-remaining">90 days</span>
@@ -391,8 +434,8 @@
                     </div>
 
                     <div class="ai-insight">
-                        <div class="ai-title">🤖 AI Insight</div>
-                        <div class="ai-text">Bitcoin ETF approval odds at 65% reflect recent SEC comments. Market swung +20% on last announcement. Historical volatility suggests ±15% moves on major news.</div>
+                        <div class="ai-title">🤖 AI vs Market Analysis</div>
+                        <div class="ai-text">AI predicts higher odds for Bitcoin $100k (+7%) but lower for ETH $2k (-3%). AI considers macro trends, technical analysis, and historical patterns vs market sentiment.</div>
                     </div>
                 </div>
 
