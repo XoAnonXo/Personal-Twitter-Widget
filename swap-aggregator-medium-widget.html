@@ -92,6 +92,17 @@
             color: #ffffff;
         }
 
+        .chain-selector {
+            background: #333333;
+            border: 1px solid #444444;
+            color: #ffffff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            cursor: pointer;
+            margin-bottom: 12px;
+        }
+
         .refresh-btn {
             background: #333333;
             border: none;
@@ -136,14 +147,14 @@
             margin-bottom: 8px;
         }
 
-        .token-input-group {
+        .amount-input-group {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 8px;
         }
 
-        .token-input {
+        .amount-input {
             background: #1a1a1a;
             border: 1px solid #444444;
             color: #ffffff;
@@ -154,7 +165,7 @@
             outline: none;
         }
 
-        .token-input:focus {
+        .amount-input:focus {
             border-color: #666666;
         }
 
@@ -174,6 +185,35 @@
             font-size: 16px;
             margin: 8px 0;
             color: #888888;
+        }
+
+        .route-badges {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .route-badge {
+            background: #667eea;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        .route-badge.intent {
+            background: #764ba2;
+        }
+
+        .route-badge.bridge {
+            background: #ff6b6b;
+        }
+
+        .route-badge.dex {
+            background: #00ff00;
+            color: #000000;
         }
 
         .aggregator-comparison {
@@ -391,17 +431,25 @@
             
             <div class="widget-header">
                 <div class="widget-title">
-                    🔄 Swap Aggregator
+                    🔄 Multi-Chain Swap
                 </div>
                 <button class="refresh-btn" onclick="refreshRates()">🔄</button>
             </div>
+
+            <select class="chain-selector" onchange="changeChain(this.value)">
+                <option value="ethereum">Ethereum</option>
+                <option value="polygon">Polygon</option>
+                <option value="arbitrum">Arbitrum</option>
+                <option value="optimism">Optimism</option>
+                <option value="base">Base</option>
+            </select>
 
             <div class="main-content">
                 <div class="left-panel">
                     <div class="swap-section">
                         <div class="swap-title">Swap</div>
-                        <div class="token-input-group">
-                            <input type="text" class="token-input" placeholder="Amount" value="1.0">
+                        <div class="amount-input-group">
+                            <input type="text" class="amount-input" placeholder="Amount" value="1.0">
                             <select class="token-selector">
                                 <option>ETH</option>
                                 <option>USDC</option>
@@ -410,14 +458,19 @@
                             </select>
                         </div>
                         <div class="swap-arrow">↓</div>
-                        <div class="token-input-group">
-                            <input type="text" class="token-input" placeholder="Amount" value="3,247.50" readonly>
+                        <div class="amount-input-group">
+                            <input type="text" class="amount-input" placeholder="Amount" value="3,247.50" readonly>
                             <select class="token-selector">
                                 <option>USDC</option>
                                 <option>ETH</option>
                                 <option>USDT</option>
                                 <option>DAI</option>
                             </select>
+                        </div>
+                        <div class="route-badges">
+                            <span class="route-badge intent">INTENT</span>
+                            <span class="route-badge dex">DEX</span>
+                            <span class="route-badge bridge">BRIDGE</span>
                         </div>
                     </div>
 
@@ -454,7 +507,7 @@
                     </div>
 
                     <button class="swap-button" onclick="executeSwap()">
-                        Swap via 1inch
+                        Execute Swap
                     </button>
                 </div>
 
@@ -528,17 +581,23 @@
 
         function executeSwap() {
             const swapBtn = document.querySelector('.swap-button');
-            swapBtn.textContent = 'Swapping...';
+            swapBtn.textContent = 'Executing...';
             swapBtn.disabled = true;
             
             // Simulate swap execution
             setTimeout(() => {
                 swapBtn.textContent = '✅ Swapped!';
                 setTimeout(() => {
-                    swapBtn.textContent = 'Swap via 1inch';
+                    swapBtn.textContent = 'Execute Swap';
                     swapBtn.disabled = false;
                 }, 2000);
             }, 3000);
+        }
+
+        function changeChain(chain) {
+            console.log(`Switching to ${chain} chain`);
+            // Simulate chain switching
+            alert(`Switching to ${chain} chain...\n\nThis would update the widget to show ${chain} DEXs and tokens.`);
         }
 
         // Initialize slippage buttons

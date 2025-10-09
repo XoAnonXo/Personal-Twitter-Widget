@@ -47,6 +47,12 @@
             opacity: 0.9;
         }
 
+        .header-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
         .content {
             padding: 40px;
         }
@@ -183,33 +189,42 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔄 Swap Aggregator of Aggregators</h1>
-            <p>Ultimate DEX Aggregation Platform</p>
+            <h1>🔄 Multi-Chain DEX Swap</h1>
+            <p>Best-Price Token Swap on Any EVM L1/L2</p>
+            <div class="header-subtitle">Uniswap / 1inch / CoW Swap / Paraswap Integration</div>
         </div>
 
         <div class="content">
             <a href="widget-menu.html" class="back-link">← Back to Widget Menu</a>
 
             <div class="description">
-                <h2>Aggregate the Aggregators</h2>
-                <p>The Swap Aggregator of Aggregators is the ultimate meta-aggregation platform that compares and routes trades across multiple DEX aggregators to find the absolute best swap rates. It's aggregators all the way down!</p>
+                <h2>Multi-Chain DEX Swap Platform</h2>
+                <p>The Multi-Chain DEX Swap platform provides best-price token swaps on any EVM L1/L2. It intelligently routes trades through Uniswap, 1inch, CoW Swap, and Paraswap, with advanced MEV protection, route reasoning, and AI-powered optimization.</p>
                 
                 <div class="features">
                     <div class="feature">
-                        <h3>🎯 Meta-Aggregation</h3>
-                        <p>Compares 1inch, Matcha, Paraswap, and more to find the best route</p>
+                        <h3>🌐 Multi-Chain Support</h3>
+                        <p>Swap tokens across Ethereum, Polygon, Arbitrum, Optimism, Base, and more</p>
                     </div>
                     <div class="feature">
-                        <h3>⚡ Split Routing</h3>
-                        <p>Automatically splits large trades across multiple protocols for optimal execution</p>
+                        <h3>🤖 AI Route Reasoning</h3>
+                        <p>LLM evaluates cost × success × MEV risk and explains routing decisions</p>
                     </div>
                     <div class="feature">
                         <h3>🛡️ MEV Protection</h3>
-                        <p>Advanced MEV protection and slippage optimization across all aggregators</p>
+                        <p>Default private RPC with MEV-Blocker/Flashbots Protect for on-chain routes</p>
                     </div>
                     <div class="feature">
-                        <h3>📊 Real-time Analytics</h3>
-                        <p>Live price comparison, gas optimization, and execution analytics</p>
+                        <h3>⚡ Intent-Based Trading</h3>
+                        <p>CoW Swap integration for batch auctions and MEV-free execution</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📊 Advanced Analytics</h3>
+                        <p>Depth charts, alt routes, gas optimization, and historical slippage analysis</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎯 Smart Approvals</h3>
+                        <p>Prefer Permit2 (ERC-20 allowance manager) to avoid unlimited approvals</p>
                     </div>
                 </div>
             </div>
@@ -217,19 +232,19 @@
             <div class="widget-grid">
                 <div class="widget-card" onclick="window.location.href='swap-aggregator-small-widget.html'">
                     <h3>Small Widget</h3>
-                    <p>Quick swap interface with essential aggregator comparison. Perfect for mobile or embedded use cases.</p>
+                    <p>Ticker pair + best route + 1-click swap. Expands to modal for detailed execution. Perfect for quick trades.</p>
                     <div class="widget-dimensions">215×300px</div>
                 </div>
 
                 <div class="widget-card" onclick="window.location.href='swap-aggregator-medium-widget.html'">
                     <h3>Medium Widget</h3>
-                    <p>Enhanced swap interface with detailed aggregator analysis, split routing options, and MEV protection settings.</p>
+                    <p>Amount, slippage, chain selector, route badges (DEX/intent/bridge), fees. Enhanced trading interface.</p>
                     <div class="widget-dimensions">450×300px</div>
                 </div>
 
                 <div class="widget-card" onclick="window.location.href='swap-aggregator-full-widget.html'">
                     <h3>Full Widget</h3>
-                    <p>Complete trading terminal with advanced analytics, multi-aggregator comparison, portfolio integration, and execution history.</p>
+                    <p>Pro view with depth charts, alt routes, gas optimization, historical slippage, execution risk analysis.</p>
                     <div class="widget-dimensions">920×730px</div>
                 </div>
             </div>
